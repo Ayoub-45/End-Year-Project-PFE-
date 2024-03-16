@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "cc16DD8r+yKKsR+7DDU6E1oUsMUuOsaHafOJi2JU7us=",
+  "Source": "MedicalThyroidReportsAPI",
+  "BasePath": "_content/MedicalThyroidReportsAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

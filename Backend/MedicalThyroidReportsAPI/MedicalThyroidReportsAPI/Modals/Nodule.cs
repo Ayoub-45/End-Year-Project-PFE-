@@ -1,0 +1,19 @@
+﻿namespace MedicalThyroidReportsAPI.Modals
+{
+    public class Nodule
+    {
+        public int idNodule {  get; set; }  
+        public string Size { get; set; }    
+        public string Location { get; set; }    
+        public string Shape { get; set; }   
+        public string Margin { get; set; }  
+        public string Echogenicity { get; set; }    
+        public string Composition { get; set; }
+        public string Clasifications { get; set; }   
+        public string ExtraThyroidExtension { get; set; }   
+        public string Catogrphy { get; set; }  
+        public string Evolution { get; set; }
+        public int ScoreTrads { get; set; } 
+
+    }
+}
