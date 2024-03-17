@@ -1,9 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\MedicalThyroidReports (code)",
-    "\\MedicalThyroidReports (code)\\Backend API"
+    "\\Server",
+    "\\Server\\MedicalThyroidReportsAPI",
+    "\\Server\\MedicalThyroidReportsAPI\\MedicalThyroidReportsAPI",
+    "\\Server\\MedicalThyroidReportsAPI\\MedicalThyroidReportsAPI\\Modals"
   ],
-  "SelectedNode": "\\MedicalThyroidReports (code)\\Backend API\\MedicalThyroidReports.sln",
+  "SelectedNode": "\\Server\\MedicalThyroidReportsAPI\\MedicalThyroidReportsAPI\\Modals\\StudyThyroid.cs",
   "PreviewInSolutionExplorer": false
 }

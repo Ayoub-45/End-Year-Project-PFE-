@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Dell\\Desktop\\Projects\\End Year project(PFE)\\Backend\\MedicalThyroidReportsAPI\\MedicalThyroidReportsAPI\\MedicalThyroidReportsAPI.csproj": {}
+    "C:\\Users\\Dell\\Desktop\\Projects\\End Year project(PFE)\\Server\\MedicalThyroidReportsAPI\\MedicalThyroidReportsAPI\\MedicalThyroidReportsAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Dell\\Desktop\\Projects\\End Year project(PFE)\\Backend\\MedicalThyroidReportsAPI\\MedicalThyroidReportsAPI\\MedicalThyroidReportsAPI.csproj": {
+    "C:\\Users\\Dell\\Desktop\\Projects\\End Year project(PFE)\\Server\\MedicalThyroidReportsAPI\\MedicalThyroidReportsAPI\\MedicalThyroidReportsAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Dell\\Desktop\\Projects\\End Year project(PFE)\\Backend\\MedicalThyroidReportsAPI\\MedicalThyroidReportsAPI\\MedicalThyroidReportsAPI.csproj",
+        "projectUniqueName": "C:\\Users\\Dell\\Desktop\\Projects\\End Year project(PFE)\\Server\\MedicalThyroidReportsAPI\\MedicalThyroidReportsAPI\\MedicalThyroidReportsAPI.csproj",
         "projectName": "MedicalThyroidReportsAPI",
-        "projectPath": "C:\\Users\\Dell\\Desktop\\Projects\\End Year project(PFE)\\Backend\\MedicalThyroidReportsAPI\\MedicalThyroidReportsAPI\\MedicalThyroidReportsAPI.csproj",
+        "projectPath": "C:\\Users\\Dell\\Desktop\\Projects\\End Year project(PFE)\\Server\\MedicalThyroidReportsAPI\\MedicalThyroidReportsAPI\\MedicalThyroidReportsAPI.csproj",
         "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Dell\\Desktop\\Projects\\End Year project(PFE)\\Backend\\MedicalThyroidReportsAPI\\MedicalThyroidReportsAPI\\obj\\",
+        "outputPath": "C:\\Users\\Dell\\Desktop\\Projects\\End Year project(PFE)\\Server\\MedicalThyroidReportsAPI\\MedicalThyroidReportsAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[8.0.33, )"
+            },
             "MysqlConnector": {
               "target": "Package",
               "version": "[2.3.5, )"

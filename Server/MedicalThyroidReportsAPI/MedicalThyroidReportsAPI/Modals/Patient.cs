@@ -7,7 +7,7 @@
         public string FirstNamePatient { get; set; }    
         public string? MiddleNamePatient {  get; set; }
         public string LastNamePatient { get; set; }
-        public DateOnly DateOfBirth { get; set; }   
+        public DateTime DateOfBirth { get; set; }   
         public string PhonePatient { get; set; }    
         public string AddressPatient {  get; set; } 
         public string CityPatient { get; set; } 
