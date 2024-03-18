@@ -51,7 +51,7 @@ namespace MedicalThyroidReportsAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateNodule([FromBody] Nodule nodule)
+        public async Task<IActionResult> AddNodule([FromBody] Nodule nodule)
         {
             try
             {
@@ -65,7 +65,7 @@ namespace MedicalThyroidReportsAPI.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateNodule(int id, [FromBody] Nodule nodule)
+        public async Task<IActionResult> ModifyNodule(int id, [FromBody] Nodule nodule)
         {
             try
             {

@@ -6,7 +6,7 @@ namespace MedicalThyroidReportsAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class StudyController : ControllerBase
+    public class StudyController : BaseController
     {
         // GET: api/<StudyController>
         [HttpGet]
