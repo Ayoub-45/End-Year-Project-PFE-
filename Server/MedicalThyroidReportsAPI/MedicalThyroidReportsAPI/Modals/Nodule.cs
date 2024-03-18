@@ -13,7 +13,7 @@
         public string ExtraThyroidExtension { get; set; }   
         public string Catogrphy { get; set; }  
         public string Evolution { get; set; }
-        public int ScoreTrads { get; set; } 
+        public int ScoreTirads { get; set; } 
 
     }
 }

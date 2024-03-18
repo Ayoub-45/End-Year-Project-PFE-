@@ -4,8 +4,8 @@
     "\\Server",
     "\\Server\\MedicalThyroidReportsAPI",
     "\\Server\\MedicalThyroidReportsAPI\\MedicalThyroidReportsAPI",
-    "\\Server\\MedicalThyroidReportsAPI\\MedicalThyroidReportsAPI\\Modals"
+    "\\Server\\MedicalThyroidReportsAPI\\MedicalThyroidReportsAPI\\Repositories"
   ],
-  "SelectedNode": "\\Server\\MedicalThyroidReportsAPI\\MedicalThyroidReportsAPI\\Modals\\StudyThyroid.cs",
+  "SelectedNode": "\\Server\\MedicalThyroidReportsAPI\\MedicalThyroidReportsAPI\\Repositories\\PatientRepository.cs",
   "PreviewInSolutionExplorer": false
 }

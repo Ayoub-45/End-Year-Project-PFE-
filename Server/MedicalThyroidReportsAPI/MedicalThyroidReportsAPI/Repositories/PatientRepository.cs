@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Data;
+using System.Data.Common;
 using MedicalThyroidReportsAPI.Modals;
 using MySql.Data.MySqlClient;
 using MySqlConnector;
@@ -11,18 +13,20 @@ namespace MedicalThyroidReportsAPI.Repositories
 
         public PatientRepository(IConfiguration configuration)
         {
-            _connectionString = configuration.GetConnectionString("Server=Mysql@localhost:3306; User ID=root; Password=Root*12345.Ayoub;Database=MedicalThyroidReports");
+            _connectionString = configuration.GetConnectionString("Default");
         }
-
         public async Task<IEnumerable<Patient>> GetAllPatientsAsync()
         {
             var patients = new List<Patient>();
+            try
+
+            {
 
             using (var connection = new MySql.Data.MySqlClient.MySqlConnection(_connectionString))
             {
+       
                 await connection.OpenAsync();
-
-                var query = "SELECT * FROM Patients";
+                var query = "SELECT * FROM patients";
 
                 using (var command = new MySql.Data.MySqlClient.MySqlCommand(query, connection))
                 using (var reader = await command.ExecuteReaderAsync())
@@ -34,7 +38,31 @@ namespace MedicalThyroidReportsAPI.Repositories
                 }
             }
 
+
+            }
+            catch(Exception ex) {
+                Console.WriteLine(ex.Message);
+   
+            }
             return patients;
+        }
+
+        private Patient MapToPatient(DbDataReader reader)
+        {
+            return new Patient
+            {
+                IdPatient = reader.GetInt32("IdPatient"),
+                CodePatient = reader.GetInt32("CodePatient"),
+                FirstNamePatient = reader.GetString("FirstNamePatient"),
+                MiddleNamePatient = reader.IsDBNull(reader.GetOrdinal("MiddleNamePatient")) ? null : reader.GetString("MiddleNamePatient"),
+                LastNamePatient = reader.GetString("LastNamePatient"),
+                DateOfBirth = reader.GetDateTime("DateOfBirth").Date,
+                PhonePatient = reader.GetString("PhonePatient"),
+                AddressPatient = reader.GetString("AddressPatient"),
+                CityPatient = reader.GetString("CityPatient"),
+                CountryPatient = reader.GetString("CountryPatient"),
+                SexPatient = reader.GetString("SexPatient")
+            };
         }
 
         public async Task<Patient> GetPatientByIdAsync(int id)
@@ -66,12 +94,12 @@ namespace MedicalThyroidReportsAPI.Repositories
         {
             using (var connection = new MySql.Data.MySqlClient.MySqlConnection(_connectionString))
             {
-                await connection.OpenAsync();
+               await  connection.OpenAsync();
 
                 var query = "INSERT INTO Patients (CodePatient, FirstNamePatient, MiddleNamePatient, LastNamePatient, DateOfBirth, PhonePatient, AddressPatient, CityPatient, CountryPatient, SexPatient) " +
                             "VALUES (@Code, @FirstName, @MiddleName, @LastName, @DateOfBirth, @Phone, @Address, @City, @Country, @Sex)";
 
-                using (var command = new MySqlCommand(query, connection))
+                using (var command = new MySql.Data.MySqlClient.MySqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@Code", patient.CodePatient);
                     command.Parameters.AddWithValue("@FirstName", patient.FirstNamePatient);
@@ -85,6 +113,8 @@ namespace MedicalThyroidReportsAPI.Repositories
                     command.Parameters.AddWithValue("@Sex", patient.SexPatient);
 
                     await command.ExecuteNonQueryAsync();
+                    
+
                 }
             }
         }
@@ -135,22 +165,5 @@ namespace MedicalThyroidReportsAPI.Repositories
             }
         }
 
-        private Patient MapToPatient(MySql.Data.MySqlClient.MySqlDataReader reader)
-        {
-            return new Patient
-            {
-                IdPatient = reader.GetInt32("IdPatient"),
-                CodePatient = reader.GetInt32("CodePatient"),
-                FirstNamePatient = reader.GetString("FirstNamePatient"),
-                MiddleNamePatient = reader.IsDBNull(reader.GetOrdinal("MiddleNamePatient")) ? null : reader.GetString("MiddleNamePatient"),
-                LastNamePatient = reader.GetString("LastNamePatient"),
-                DateOfBirth =  reader.GetDateTime("DateOfBirth").Date,
-                PhonePatient = reader.GetString("PhonePatient"),
-                AddressPatient = reader.GetString("AddressPatient"),
-                CityPatient = reader.GetString("CityPatient"),
-                CountryPatient = reader.GetString("CountryPatient"),
-                SexPatient = reader.GetString("SexPatient")
-            };
-        }
     }
 }

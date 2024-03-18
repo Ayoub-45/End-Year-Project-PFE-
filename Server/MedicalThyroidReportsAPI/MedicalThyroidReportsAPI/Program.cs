@@ -1,3 +1,4 @@
+using MedicalThyroidReportsAPI.Repositories;
 using MySqlConnector;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,11 +7,13 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddScoped<PatientRepository>();
+builder.Services.AddScoped<NoduleRepository>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddTransient<MySqlConnection>(_ =>
-    new MySqlConnection(builder.Configuration.GetConnectionString("Default")));
+new MySqlConnection(builder.Configuration.GetConnectionString("Default")));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
