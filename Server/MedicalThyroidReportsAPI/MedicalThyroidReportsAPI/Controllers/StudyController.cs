@@ -1,43 +1,106 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+using MedicalThyroidReportsAPI.Modals;
+using MedicalThyroidReportsAPI.Repositories;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace MedicalThyroidReportsAPI.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
-    public class StudyController : BaseController
+    [Route("api/[controller]")]
+    public class StudyController : ControllerBase
     {
-        // GET: api/<StudyController>
+        private readonly StudyRepository _studyRepository;
+
+        public StudyController(StudyRepository studyRepository)
+        {
+            _studyRepository = studyRepository;
+        }
+
         [HttpGet]
-        public IEnumerable<string> Get()
+        public async Task<ActionResult<IEnumerable<Study>>> GetAllStudies()
         {
-            return new string[] { "value1", "value2" };
+            try
+            {
+                var studies = await _studyRepository.GetAllStudiesAsync();
+                return Ok(studies);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
         }
 
-        // GET api/<ValuesController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public async Task<ActionResult<Study>> GetStudyById(int id)
         {
-            return "value";
+            try
+            {
+                var study = await _studyRepository.GetStudyByIdAsync(id);
+                if (study == null)
+                {
+                    return NotFound($"Study with ID {id} not found");
+                }
+                return Ok(study);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
         }
 
-        // POST api/<ValuesController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<ActionResult<Study>> AddStudy(Study study)
         {
+            try
+            {
+                await _studyRepository.AddStudyAsync(study);
+                return CreatedAtAction(nameof(GetStudyById), new { id = study.Id }, study);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
         }
 
-        // PUT api/<ValuesController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public async Task<IActionResult> ModifyStudy(int id, Study study)
         {
+            try
+            {
+                var existingStudy = await _studyRepository.GetStudyByIdAsync(id);
+                if (existingStudy == null)
+                {
+                    return NotFound($"Study with ID {id} not found");
+                }
+                study.Id = id; // Ensure the ID remains unchanged
+                await _studyRepository.UpdateStudyAsync(study);
+                return Ok("Study created successfully");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
         }
 
-        // DELETE api/<ValuesController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<IActionResult> DeleteStudy(int id)
         {
+            try
+            {
+                var existingStudy = await _studyRepository.GetStudyByIdAsync(id);
+                if (existingStudy == null)
+                {
+                    return NotFound($"Study with ID {id} not found");
+                }
+                await _studyRepository.DeleteStudyAsync(id);
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
         }
     }
 }

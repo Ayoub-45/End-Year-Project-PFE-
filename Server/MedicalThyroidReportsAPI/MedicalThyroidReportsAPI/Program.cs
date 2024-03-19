@@ -4,11 +4,13 @@ using MySqlConnector;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddScoped<PatientRepository>();
 builder.Services.AddScoped<NoduleRepository>();
+builder.Services.AddScoped<StudyRepository>();
+builder.Services.AddScoped<StudyThyroidRepository>();
+builder.Services.AddControllers();
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

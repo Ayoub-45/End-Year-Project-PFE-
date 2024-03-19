@@ -4,6 +4,7 @@
     "\\Server",
     "\\Server\\MedicalThyroidReportsAPI",
     "\\Server\\MedicalThyroidReportsAPI\\MedicalThyroidReportsAPI",
+    "\\Server\\MedicalThyroidReportsAPI\\MedicalThyroidReportsAPI\\Controllers",
     "\\Server\\MedicalThyroidReportsAPI\\MedicalThyroidReportsAPI\\Repositories"
   ],
   "SelectedNode": "\\Server\\MedicalThyroidReportsAPI\\MedicalThyroidReportsAPI.sln",

@@ -1,9 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MedicalThyroidReportsAPI.Modals;
 using MedicalThyroidReportsAPI.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace MedicalThyroidReportsAPI.Controllers
 {

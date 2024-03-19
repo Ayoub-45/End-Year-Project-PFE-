@@ -1,43 +1,80 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+using MedicalThyroidReportsAPI.Modals;
+using MedicalThyroidReportsAPI.Repositories;
 
 namespace MedicalThyroidReportsAPI.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
-    public class StudyThyroidController : ControllerBase
+    [Route("api/[controller]")]
+    public class StudyThyroidController:ControllerBase
     {
-        // GET: api/<StudyThyroidController>
+        private readonly StudyThyroidRepository _studyThyroidRepository;
+
+        public StudyThyroidController(StudyThyroidRepository studyThyroidRepository)
+        {
+            _studyThyroidRepository = studyThyroidRepository;
+        }
+
         [HttpGet]
-        public IEnumerable<string> Get()
+        public async Task<ActionResult<IEnumerable<StudyThyroid>>> GetAllStudyThyroids()
         {
-            return new string[] { "value1", "value2" };
+            var studyThyroids = await _studyThyroidRepository.GetAllStudyThyroidsAsync();
+            return Ok(studyThyroids);
         }
 
-        // GET api/<StudyThyroidController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public async Task<ActionResult<StudyThyroid>> GetStudyThyroidById(int id)
         {
-            return "value";
+            var studyThyroid = await _studyThyroidRepository.GetStudyThyroidByIdAsync(id);
+            if (studyThyroid == null)
+            {
+                return NotFound();
+            }
+            return Ok(studyThyroid);
         }
 
-        // POST api/<StudyThyroidController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<ActionResult<StudyThyroid>> AddStudyThyroid(StudyThyroid studyThyroid)
         {
+            await _studyThyroidRepository.AddStudyThyroidAsync(studyThyroid);
+            return CreatedAtAction(nameof(GetStudyThyroidById), new { id = studyThyroid.Id }, studyThyroid);
         }
 
-        // PUT api/<StudyThyroidController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public async Task<IActionResult> ModifyStudyThyroid(int id, StudyThyroid studyThyroid)
         {
+            if (id != studyThyroid.Id)
+            {
+                return BadRequest();
+            }
+
+            try
+            {
+                await _studyThyroidRepository.UpdateStudyThyroidAsync(studyThyroid);
+            }
+            catch (Exception)
+            {
+                if (await _studyThyroidRepository.GetStudyThyroidByIdAsync(id) == null)
+                {
+                    return NotFound();
+                }
+                throw;
+            }
+
+            return Ok("Created successfully");
         }
 
-        // DELETE api/<StudyThyroidController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<IActionResult> DeleteStudyThyroid(int id)
         {
+            var studyThyroid = await _studyThyroidRepository.GetStudyThyroidByIdAsync(id);
+            if (studyThyroid == null)
+            {
+                return NotFound();
+            }
+
+            await _studyThyroidRepository.DeleteStudyThyroidAsync(id);
+            return Ok("Deleted successfully");
         }
     }
 }

@@ -1,6 +1,11 @@
 ﻿
 using MySql.Data.MySqlClient;
 using MedicalThyroidReportsAPI.Modals;
+using System.Data;
+using MySqlConnector;
+using MySqlConnection = MySql.Data.MySqlClient.MySqlConnection;
+using MySqlCommand = MySql.Data.MySqlClient.MySqlCommand;
+using MySqlDataReader = MySql.Data.MySqlClient.MySqlDataReader;
 namespace MedicalThyroidReportsAPI.Repositories
 {
     public class NoduleRepository
@@ -135,9 +140,29 @@ namespace MedicalThyroidReportsAPI.Repositories
                 }
             }
         }
-
-        private Nodule MapToNodule(MySqlDataReader reader)
+        public async Task<IEnumerable<Nodule>> GetNodulesByStudyThyroidIdAsync(int studyThyroidId)
         {
+            using var connection = new MySqlConnection(_connectionString);
+            await connection.OpenAsync();
+
+            var query = "SELECT * FROM Nodule WHERE StudyThyroidId = @StudyThyroidId";
+            using var command = new MySqlCommand(query, connection);
+            command.Parameters.AddWithValue("@StudyThyroidId", studyThyroidId);
+
+            using var reader = await command.ExecuteReaderAsync();
+
+            var nodules = new List<Nodule>();
+            while (await reader.ReadAsync())
+            {
+                nodules.Add(MapToNodule((MySqlDataReader) reader));
+            }
+
+            return nodules;
+        }
+
+        
+        private Nodule MapToNodule(MySqlDataReader reader)
+        { 
             return new Nodule
             {
                 idNodule = reader.GetInt32("idNodule"),
