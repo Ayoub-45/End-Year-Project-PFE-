@@ -59,8 +59,8 @@ namespace MedicalThyroidReportsAPI.Repositories
             using var connection = new MySqlConnection(_connectionString);
             await connection.OpenAsync();
 
-            var query = "INSERT INTO StudyThyroid (IdRadiologist, TypeOfStudy, DateStudy, Volume, Vascularization, Echogenicity, LymphNodeUltra, ThyroglossalTracStudy, Recommendation) " +
-                        "VALUES (@IdRadiologist, @TypeOfStudy, @DateStudy, @Volume, @Vascularization, @Echogenicity, @LymphNodeUltra, @ThyroglossalTracStudy, @Recommendation)";
+            var query = "INSERT INTO StudyThyroid (IdRadiologist, TypeOfStudy, DateStudy, Volume, Vascularization, Echogenicity, LymphNodeUltra, ThyroglossalTractStudy, Recommendation) " +
+                        "VALUES (@IdRadiologist, @TypeOfStudy, @DateStudy, @Volume, @Vascularization, @Echogenicity, @LymphNodeUltra, @ThyroglossalTractStudy, @Recommendation)";
             using var command = new MySqlCommand(query, connection);
             command.Parameters.AddWithValue("@IdRadiologist", studyThyroid.IdRadiologist);
             command.Parameters.AddWithValue("@TypeOfStudy", studyThyroid.TypeOfStudy);
@@ -69,7 +69,7 @@ namespace MedicalThyroidReportsAPI.Repositories
             command.Parameters.AddWithValue("@Vascularization", studyThyroid.Vascularization);
             command.Parameters.AddWithValue("@Echogenicity", studyThyroid.Echogenicity);
             command.Parameters.AddWithValue("@LymphNodeUltra", studyThyroid.LymphNodeUltra);
-            command.Parameters.AddWithValue("@ThyroglossalTracStudy", studyThyroid.ThyroglossalTracStudy);
+            command.Parameters.AddWithValue("@ThyroglossalTractStudy", studyThyroid.ThyroglossalTractStudy);
             command.Parameters.AddWithValue("@Recommendation", studyThyroid.Recommendation);
 
             await command.ExecuteNonQueryAsync();
@@ -79,12 +79,12 @@ namespace MedicalThyroidReportsAPI.Repositories
         {
             using var connection = new MySqlConnection(_connectionString);
             await connection.OpenAsync();
-
             var query = "UPDATE StudyThyroid SET IdRadiologist = @IdRadiologist, TypeOfStudy = @TypeOfStudy, DateStudy = @DateStudy, " +
                         "Volume = @Volume, Vascularization = @Vascularization, Echogenicity = @Echogenicity, " +
-                        "LymphNodeUltra = @LymphNodeUltra, ThyroglossalTracStudy = @ThyroglossalTractStudy, " +
-                        "Recommendation = @Recommendation WHERE Id = @Id";
+                        "LymphNodeUltra = @LymphNodeUltra, ThyroglossalTractStudy = @ThyroglossalTractStudy, " +
+                        "Recommendation = @Recommendation WHERE IdStudyThyroid = @IdStudyThyroid";
             using var command = new MySqlCommand(query, connection);
+            command.Parameters.AddWithValue("@IdStudyThyroid", studyThyroid.IdStudyThyroid);
             command.Parameters.AddWithValue("@Id", studyThyroid.Id);
             command.Parameters.AddWithValue("@IdRadiologist", studyThyroid.IdRadiologist);
             command.Parameters.AddWithValue("@TypeOfStudy", studyThyroid.TypeOfStudy);
@@ -110,38 +110,75 @@ namespace MedicalThyroidReportsAPI.Repositories
 
             await command.ExecuteNonQueryAsync();
         }
-
         private async Task<StudyThyroid> MapToStudyThyroid(MySqlDataReader reader)
         {
             var studyThyroid = new StudyThyroid
             {
-                Id = Convert.ToInt32(reader["Id"]),
-                IdRadiologist = Convert.ToInt32(reader["IdRadiologist"]),
+                IdStudyThyroid = reader["IdStudyThyroid"] == DBNull.Value ? 0 : Convert.ToInt32(reader["IdStudyThyroid"]),
+                Id = reader.IsDBNull(reader.GetOrdinal("Id")) ? 0 : Convert.ToInt32(reader["Id"]),
+                IdRadiologist = reader.IsDBNull(reader.GetOrdinal("IdRadiologist")) ? 0 : Convert.ToInt32(reader["IdRadiologist"]),
                 TypeOfStudy = reader["TypeOfStudy"].ToString(),
                 DateStudy = Convert.ToDateTime(reader["DateStudy"]),
-                Volume = reader["Volume"] == DBNull.Value ? null : reader["Volume"].ToString(),
-                Vascularization = reader["Vascularization"] == DBNull.Value ? null : reader["Vascularization"].ToString(),
-                Echogenicity = reader["Echogenicity"] == DBNull.Value ? null : reader["Echogenicity"].ToString(),
-                LymphNodeUltra = reader["LymphNodeUltra"] == DBNull.Value ? null : reader["LymphNodeUltra"].ToString(),
-                ThyroglossalTractStudy = reader["ThyroglossalTractStudy"] == DBNull.Value ? null : reader["ThyroglossalTractStudy"].ToString(),
-                Recommendation = reader["Recommendation"] == DBNull.Value ? null : reader["Recommendation"].ToString(),
-                Nodules = new List<Nodule>() // Initialize Nodules list
+                Volume = reader.IsDBNull(reader.GetOrdinal("Volume")) ? null : reader["Volume"].ToString(),
+                Vascularization = reader.IsDBNull(reader.GetOrdinal("Vascularization")) ? null : reader["Vascularization"].ToString(),
+                Echogenicity = reader.IsDBNull(reader.GetOrdinal("Echogenicity")) ? null : reader["Echogenicity"].ToString(),
+                LymphNodeUltra = reader.IsDBNull(reader.GetOrdinal("LymphNodeUltra")) ? null : reader["LymphNodeUltra"].ToString(),
+                ThyroglossalTractStudy = reader.IsDBNull(reader.GetOrdinal("ThyroglossalTractStudy")) ? null : reader["ThyroglossalTractStudy"].ToString(),
+                Recommendation = reader.IsDBNull(reader.GetOrdinal("Recommendation")) ? null : reader["Recommendation"].ToString(),
             };
 
-            // Check if NoduleId is DBNull before attempting to load Nodules
-            if (reader["NoduleId"] != DBNull.Value)
-            {
-                // Load Nodules separately using NoduleRepository
-                var noduleRepository = new NoduleRepository(_configuration); // Initialize NoduleRepository with IConfiguration
-                var nodules = await noduleRepository.GetNodulesByStudyThyroidIdAsync(Convert.ToInt32(reader["NoduleId"]));
-                foreach (var item in nodules)
-                {
-                    studyThyroid.Nodules.Add(item);
-                }
-            }
 
             return studyThyroid;
-
         }
+        public List<StudyThyroid> GetAllStudyThyroidsWithNodules()
+        {
+            using (var connection = new MySqlConnection(_connectionString))
+            {
+                connection.Open();
+
+                var query = @"
+        SELECT s.*, n.*
+        FROM StudyThyroid s
+        LEFT JOIN Nodule n ON s.IdStudyThyroid = n.StudyThyroidId";
+
+                var command = new MySqlCommand(query, connection);
+                var reader = command.ExecuteReader();
+
+                var studyThyroids = new Dictionary<int, StudyThyroid>();
+
+                while (reader.Read())
+                {
+                    var studyThyroidId = reader.GetInt32(0); // Assuming IdStudyThyroid is the first column
+
+                    if (!studyThyroids.ContainsKey(studyThyroidId))
+                    {
+                        var studyThyroid = new StudyThyroid
+                        {
+                            IdStudyThyroid = studyThyroidId,
+                            Nodules = new List<Nodule>()
+                        };
+                        studyThyroids[studyThyroidId] = studyThyroid;
+                    }
+
+                    // Check if NoduleId is not null
+                    if (!reader.IsDBNull(6)) // Assuming NoduleId is the seventh column
+                    {
+                        var nodule = new Nodule
+                        {
+                            IdNodule = reader.GetInt32(6), // Assuming NoduleId is the seventh column
+                                                           // Populate other properties of Nodule here...
+                        };
+                        studyThyroids[studyThyroidId].Nodules.Add(nodule);
+                    }
+                }
+
+                var result = studyThyroids.Values.ToList();
+                return result;
+            }
+        }
+
+
+
     }
+
 }

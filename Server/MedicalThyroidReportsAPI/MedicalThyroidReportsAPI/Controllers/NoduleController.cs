@@ -72,7 +72,7 @@ namespace MedicalThyroidReportsAPI.Controllers
                     return NotFound("Nodule not found.");
                 }
 
-                nodule.idNodule = id;
+                nodule.IdNodule = id;
                 await _noduleRepository.UpdateNoduleAsync(nodule);
                 return Ok("Nodule updated successfully.");
             }

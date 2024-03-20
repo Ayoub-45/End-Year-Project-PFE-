@@ -117,7 +117,7 @@ namespace MedicalThyroidReportsAPI.Repositories
                     command.Parameters.AddWithValue("@Catogrphy", nodule.Catogrphy);
                     command.Parameters.AddWithValue("@Evolution", nodule.Evolution);
                     command.Parameters.AddWithValue("@ScoreTirads", nodule.ScoreTirads);
-                    command.Parameters.AddWithValue("@Id", nodule.idNodule);
+                    command.Parameters.AddWithValue("@Id", nodule.IdNodule);
 
                     await command.ExecuteNonQueryAsync();
                 }
@@ -165,7 +165,7 @@ namespace MedicalThyroidReportsAPI.Repositories
         { 
             return new Nodule
             {
-                idNodule = reader.GetInt32("idNodule"),
+                IdNodule = reader.GetInt32("idNodule"),
                 Size = reader.GetString("Size"),
                 Location = reader.GetString("Location"),
                 Shape = reader.GetString("Shape"),

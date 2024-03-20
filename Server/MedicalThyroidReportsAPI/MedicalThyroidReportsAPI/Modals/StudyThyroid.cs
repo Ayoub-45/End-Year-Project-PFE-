@@ -9,6 +9,6 @@
         public string LymphNodeUltra { get; set; }
         public string ThyroglossalTractStudy { get; set; }
         public string Recommendation { get; set; }
-        public List<Nodule> Nodules { get; set; }
+        public List<Nodule> Nodules { get; set; } = new List<Nodule>();
     }
 }

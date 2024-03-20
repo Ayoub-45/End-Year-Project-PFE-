@@ -76,5 +76,19 @@ namespace MedicalThyroidReportsAPI.Controllers
             await _studyThyroidRepository.DeleteStudyThyroidAsync(id);
             return Ok("Deleted successfully");
         }
+        [HttpGet("withNodules")]
+        public IActionResult GetAllStudyThyroidsWithNodules()
+        {
+            try
+            {
+                var studyThyroids =  _studyThyroidRepository.GetAllStudyThyroidsWithNodules();
+                return Ok(studyThyroids);
+            }
+            catch (Exception ex)
+            {
+                // Log the error
+                return StatusCode(500, "Internal server error "+ex.Message);
+            }
+        }
     }
 }
