@@ -14,7 +14,7 @@
         public string CountryPatient { get; set; }
         public string SexPatient { get; set; }  
         //navigation
-        public ICollection<Study> Studies { get; set; } = new List<Study>();    
+        public List<Study> Studies { get; set; } = new List<Study>();    
 
     }
 }

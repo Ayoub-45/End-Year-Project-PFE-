@@ -46,6 +46,66 @@ namespace MedicalThyroidReportsAPI.Repositories
             }
             return patients;
         }
+        public List<Patient> GetAllPatientsWithStudies()
+        {
+            List<Patient> patients = new List<Patient>();
+
+            using (var connection = new MySql.Data.MySqlClient.MySqlConnection(_connectionString))
+            {
+                connection.Open();
+
+                string query = @"
+            SELECT p.*, s.*
+            FROM patients p
+            LEFT JOIN study s ON p.IdPatient = s.PatientId";
+
+                using (var command = new MySql.Data.MySqlClient.MySqlCommand(query, connection))
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        int patientId = reader.GetInt32("IdPatient");
+
+                        // Check if patient already exists in the list
+                        Patient patient = patients.FirstOrDefault(p => p.IdPatient == patientId);
+                        if (patient == null)
+                        {
+                            // Create a new patient object
+                            Patient p= new Patient
+                            {
+                                IdPatient = patientId,
+                                CodePatient = reader.GetInt32("CodePatient"),
+                                FirstNamePatient = reader.GetString("FirstNamePatient"),
+                                MiddleNamePatient = reader.IsDBNull("MiddleNamePatient") ? null : reader.GetString("MiddleNamePatient"),
+                                LastNamePatient = reader.GetString("LastNamePatient"),
+                                DateOfBirth = reader.GetDateTime("DateOfBirth"),
+                                PhonePatient = reader.GetString("PhonePatient"),
+                                AddressPatient = reader.GetString("AddressPatient"),
+                                CityPatient = reader.GetString("CityPatient"),
+                                CountryPatient = reader.GetString("CountryPatient"),
+                                SexPatient = reader.GetString("SexPatient"),
+                                Studies = new List<Study>() // Initialize Studies as an empty list
+                            };
+
+
+                            patients.Add(p);
+                        }
+
+                        // Add study to patient's studies list
+                        Study study = new Study
+                        {
+                            Id = reader.GetInt32("Id"),
+                            IdRadiologist = reader.GetInt32("IdRadiologist"),
+                            TypeOfStudy = reader.GetString("TypeOfStudy"),
+                            DateStudy = reader.GetDateTime("DateStudy")
+                        };
+                        patient.Studies.Add(study);
+                    }
+                }
+            }
+
+            return patients;
+        }
 
         private Patient MapToPatient(DbDataReader reader)
         {

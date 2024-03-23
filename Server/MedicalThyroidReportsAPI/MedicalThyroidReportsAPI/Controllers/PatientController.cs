@@ -98,5 +98,20 @@ namespace MedicalThyroidReportsAPI.Controllers
             }
         }
 
+        [HttpGet("patientswithstudies")]
+        public IActionResult GetPatientsWithStudies()
+        {
+            try
+            {
+                var patientsWithStudies = _patientRepository.GetAllPatientsWithStudies();
+                return Ok(patientsWithStudies);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
+
+
     }
 }
