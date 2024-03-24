@@ -1,7 +1,16 @@
 <form>
   <div>
     <label for="id">id</label>
-    <input type="number" name="id" id="id" placeholder="id" />
+    <input
+      [[(ngModel)]="service.formData.Id"
+      ]
+      #id
+      name="Id"
+      type="number"
+      name="id"
+      id="id"
+      placeholder="id"
+    />
   </div>
   <div>
     <label for="code">code</label>
@@ -57,7 +66,7 @@
 
   <div>
     <label for="  date_Naissance"> date_Naissance </label>
-    <input type="text" id="date_Naissance" placeholder="date_Naissance" />
+    <input type="date" id="date_Naissance" placeholder="date_Naissance" />
   </div>
   <button type="submit">submit</button>
 </form>
