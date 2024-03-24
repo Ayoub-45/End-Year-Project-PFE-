@@ -2320,11 +2320,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Dell\\Desktop\\Projects\\End Year project(PFE)\\V2\\MedicalThyroidReports\\MedicalThyroidReports\\MedicalThyroidReports.csproj",
+      "projectUniqueName": "C:\\Users\\Dell\\Desktop\\Projects\\End Year project(PFE)\\V2\\Server\\MedicalThyroidReports\\MedicalThyroidReports.csproj",
       "projectName": "MedicalThyroidReports",
-      "projectPath": "C:\\Users\\Dell\\Desktop\\Projects\\End Year project(PFE)\\V2\\MedicalThyroidReports\\MedicalThyroidReports\\MedicalThyroidReports.csproj",
+      "projectPath": "C:\\Users\\Dell\\Desktop\\Projects\\End Year project(PFE)\\V2\\Server\\MedicalThyroidReports\\MedicalThyroidReports.csproj",
       "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Dell\\Desktop\\Projects\\End Year project(PFE)\\V2\\MedicalThyroidReports\\MedicalThyroidReports\\obj\\",
+      "outputPath": "C:\\Users\\Dell\\Desktop\\Projects\\End Year project(PFE)\\V2\\Server\\MedicalThyroidReports\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
