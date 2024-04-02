@@ -7,10 +7,10 @@ export interface Patient {
   adresse: string;
   profession: string;
   gs: string;
-  rh: 0;
+  rh: number;
   race: string;
-  poids: 0;
-  taille: 0;
+  poids: number;
+  taille: number;
   statutMatrimonial: string;
   date_Naissance: Date;
 }

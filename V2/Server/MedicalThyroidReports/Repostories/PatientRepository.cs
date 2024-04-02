@@ -51,7 +51,8 @@ namespace MedicalThyroidReports.Repositories
                             Race = reader["Race"].ToString(),
                             Poids = Convert.ToSingle(reader["Poids"]),
                             Taille = Convert.ToSingle(reader["Taille"]),
-                            StatutMatrimonial = reader["StatutMatrimonial"].ToString()
+                            StatutMatrimonial = reader["StatutMatrimonial"].ToString(),
+                            Date_Naissance = reader["Date_Naissance"].ToString()
                         });
                     }
 
@@ -112,6 +113,7 @@ namespace MedicalThyroidReports.Repositories
                     {
                         if (await reader.ReadAsync())
                         {
+
                             return new Patient
                             {
                                 Id = Convert.ToInt32(reader["Id"]),
@@ -127,7 +129,7 @@ namespace MedicalThyroidReports.Repositories
                                 Poids = Convert.ToSingle(reader["Poids"]),
                                 Taille = Convert.ToSingle(reader["Taille"]),
                                 StatutMatrimonial = reader["StatutMatrimonial"].ToString(),
-                                Date_Naissance = Convert.ToDateTime(reader["Date_Naissance"])
+                                Date_Naissance = Convert.ToDateTime(reader["Date_Naissance"]).ToString()
                             };
                         }
                         else

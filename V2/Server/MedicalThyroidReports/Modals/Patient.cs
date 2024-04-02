@@ -40,6 +40,7 @@ namespace MedicalThyroidReports.Modals
 
             [MaxLength(45)]
             public string StatutMatrimonial { get; set; }
-            public DateTime Date_Naissance { get; set; }
+        [MaxLength(45)]
+        public string Date_Naissance { get; set; }
     }
     }

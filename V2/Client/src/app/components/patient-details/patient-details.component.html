@@ -1,6 +1,6 @@
-{{ title }}
+<h1>{{ title }} (Get patients)</h1>
 
-<table>
+<table class="table">
   <tr>
     <th>code</th>
     <th>nom</th>
@@ -8,14 +8,82 @@
     <th>sexe</th>
     <th>adresse</th>
     <th>profession</th>
+    <th>gs</th>
+    <th>rh</th>
+    <th>race</th>
+    <th>poids</th>
+    <th>taille</th>
+    <th>statutMatrimonial</th>
+    <th>date_Naissance</th>
   </tr>
-  <tr *ngFor="let patient of service.listPatients">
+  <tr *ngFor="let patient of patients">
     <td>{{ patient.code }}</td>
     <td>{{ patient.nom }}</td>
     <td>{{ patient.prenom }}</td>
     <td>{{ patient.sexe }}</td>
     <td>{{ patient.adresse }}</td>
     <td>{{ patient.profession }}</td>
+    <td>{{ patient.gs }}</td>
+    <td>{{ patient.rh }}</td>
+    <td>{{ patient.race }}</td>
+    <td>{{ patient.poids }}</td>
+    <td>{{ patient.taille }}</td>
+    <td>{{ patient.statutMatrimonial }}</td>
+    <td>{{ patient.date_Naissance | date }}</td>
   </tr>
 </table>
+<br />
+<form [formGroup]="applyForm" (submit)="submitApplication()">
+  <h3>Get patient by Id (Get by id)</h3>
+  <label for="patient-id"> Id </label>
+  <input
+    placeholder="Search by id"
+    type="number"
+    id="patient-id"
+    formControlName="id"
+  />
+  <button type="submit">Search</button>
+</form>
+<div *ngIf="show">
+  <h3>Patient:</h3>
+  <table>
+    <tr>
+      <th>id</th>
+      <th>code</th>
+      <th>nom</th>
+      <th>prenom</th>
+      <th>sexe</th>
+      <th>adresse</th>
+      <th>profession</th>
+      <th>gs</th>
+      <th>rh</th>
+      <th>race</th>
+      <th>poids</th>
+      <th>taille</th>
+      <th>statutMatrimonial</th>
+      <th>date_Naissance</th>
+    </tr>
+    <tr>
+      <td>{{ patient.id }}</td>
+      <td>{{ patient.code }}</td>
+      <td>{{ patient.nom }}</td>
+      <td>{{ patient.prenom }}</td>
+      <td>{{ patient.sexe }}</td>
+      <td>{{ patient.adresse }}</td>
+      <td>{{ patient.profession }}</td>
+      <td>{{ patient.gs }}</td>
+      <td>{{ patient.rh }}</td>
+      <td>{{ patient.race }}</td>
+      <td>{{ patient.poids }}</td>
+      <td>{{ patient.taille }}</td>
+      <td>{{ patient.statutMatrimonial }}</td>
+      <td>{{ patient.date_Naissance | date }}</td>
+    </tr>
+  </table>
+</div>
+
+<h2>Add patient (post)</h2>
 <app-add-patientdetails> </app-add-patientdetails>
+<h2>Update patient details</h2>
+<app-update-patient></app-update-patient>
+<app-delete-patient></app-delete-patient>
