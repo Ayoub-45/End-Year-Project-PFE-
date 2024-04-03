@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MedicalThyroidReports")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d806f42d7eb166434ebf109cf24d4e947ca81a9c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5a044cb6bb60a1f5edbfbfa59ab470284dca8f7d")]
 [assembly: System.Reflection.AssemblyProductAttribute("MedicalThyroidReports")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MedicalThyroidReports")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
