@@ -1,1 +1,52 @@
-/* You can add global styles to this file, and also import other style files */
+/* Color Scheme */
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+:root {
+  --primary-color: #1e488f; /* Deep Blue */
+  --accent-color: #2cb4ad; /* Teal */
+  --highlight-color: #ff6347; /* Red */
+  --background-color: #f4f4f4; /*light gray*/
+}
+
+/* Fonts */
+body {
+  background-color: var(--background-color);
+  font-family: "Open Sans", Arial, sans-serif; /* Body Text Font */
+  font-size: 16px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Roboto", sans-serif; /* Heading Font */
+  font-weight: 700; /* Bold font weight for headings */
+  line-height: 1.2; /* Adjust line-height for headings */
+  color: var(--primary-color);
+}
+
+em {
+  font-style: italic; /* Emphasis Font */
+}
+
+strong {
+  font-weight: bold; /* Emphasis Font */
+}
+
+/* Theme Styles */
+.primary-text {
+  color: var(--primary-color);
+  background-color: f4f4f4;
+}
+
+.accent-text {
+  color: var(--accent-color);
+}
+
+.highlight-text {
+  color: var(--highlight-color);
+}
