@@ -1,0 +1,59 @@
+/*
+Font:Roboto,
+*/
+
+h1 {
+  font-family: "Roboto", sans-serif;
+}
+.logo {
+  width: 150px;
+  height: 150px;
+}
+.nav {
+  background-color: #050a30;
+  width: 100vw;
+  height: 150px;
+  display: flex;
+  justify-content: space-between;
+}
+.navigation {
+  list-style: none;
+  display: flex;
+  color: #fff;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  font-size: 22px;
+  font-family: "Roboto";
+  margin-right: 50px;
+}
+a {
+  text-decoration: none;
+  text-transform: uppercase;
+  --c: #fff; /* the color*/
+  padding: 20px;
+
+  box-shadow: 0 0 0 0.1em inset var(--c);
+  --_g: linear-gradient(var(--c) 0 0) no-repeat;
+  background: var(--_g) calc(var(--_p, 0%) - 100%) 0%,
+    var(--_g) calc(200% - var(--_p, 0%)) 0%,
+    var(--_g) calc(var(--_p, 0%) - 100%) 100%,
+    var(--_g) calc(200% - var(--_p, 0%)) 100%;
+  background-size: 50.5% calc(var(--_p, 0%) / 2 + 0.5%);
+  outline-offset: 0.1em;
+  transition: background-size 0.4s, background-position 0s 0.4s;
+}
+
+a:hover {
+  color: #050a30;
+  --_p: 100%;
+  transition: background-position 0.4s, background-size 0s;
+}
+a:active {
+  box-shadow: 0 0 9e9Q inset #0009;
+  background-color: var(--c);
+  color: #fff;
+}
+.span {
+  color: #fff;
+}
