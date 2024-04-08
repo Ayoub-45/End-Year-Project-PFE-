@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { AddPatientdetailsComponent } from '../add-patient/add-patientdetails.component';
+import { AddPatientComponent } from '../add-patient/add-patient.component';
 
 @Component({
   selector: 'app-patient-mangement',
   standalone: true,
-  imports: [AddPatientdetailsComponent],
+  imports: [AddPatientComponent],
   templateUrl: './patient-mangement.component.html',
   styleUrl: './patient-mangement.component.css',
 })

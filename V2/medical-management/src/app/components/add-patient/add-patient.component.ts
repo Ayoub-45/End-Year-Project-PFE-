@@ -3,13 +3,13 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { PatientService } from '../../services/patient.service';
 import { Patient } from '../../interfaces/patient';
 @Component({
-  selector: 'app-add-patientdetails',
+  selector: 'app-add-patient',
   standalone: true,
   imports: [ReactiveFormsModule],
-  templateUrl: './add-patientdetails.component.html',
-  styleUrl: './add-patientdetails.component.css',
+  templateUrl: './add-patient.component.html',
+  styleUrl: './add-patient.component.css',
 })
-export class AddPatientdetailsComponent {
+export class AddPatientComponent {
   patient!: Patient;
   applyForm = new FormGroup({
     id: new FormControl(0),
