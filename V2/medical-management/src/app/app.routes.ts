@@ -3,6 +3,7 @@ import { PatientMangementComponent } from './components/patient-mangement/patien
 import { AppComponent } from './app.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { HomeComponent } from './components/home/home.component';
+import { AddPatientComponent } from './components/add-patient/add-patient.component';
 
 export const routes: Routes = [
   {
@@ -14,7 +15,11 @@ export const routes: Routes = [
     component: HomeComponent,
   },
   {
-    path: `patientmanagement`,
+    path: `patient-management`,
     component: PatientMangementComponent,
+  },
+  {
+    path: `patient-management/add-patient`,
+    component: AddPatientComponent,
   },
 ];

@@ -1,0 +1,54 @@
+/* form.component.css */
+
+form {
+  font-family: "Roboto", sans-serif;
+  color: #050a30; /* Text color */
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 400px; /* Adjust the maximum width as needed */
+  margin: auto; /* Center the form horizontally */
+  background-color: #ffffff; /* White background */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+}
+
+form div {
+  margin-bottom: 15px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+form input[type="text"],
+form input[type="number"],
+form select,
+form input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #050a30; /* Dark blue border */
+  border-radius: 5px;
+  background-color: #f9f9f9; /* Light gray background */
+  transition: border-color 0.3s ease-in-out; /* Smooth border transition */
+}
+
+form input[type="text"]:focus,
+form input[type="number"]:focus,
+form select:focus,
+form input[type="date"]:focus {
+  border-color: #007bff; /* Blue border on focus */
+}
+
+form button {
+  background-color: #007bff; /* Blue button color */
+  color: #ffffff; /* White text color */
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out; /* Smooth background color transition */
+}
+
+form button:hover {
+  background-color: #0056b3; /* Darker blue color on hover */
+}
