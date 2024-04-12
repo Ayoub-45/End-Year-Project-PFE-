@@ -13,11 +13,6 @@ export const routes: Routes = [
     path: 'home',
     component: HomeComponent,
   },
-
-  {
-    path: `signin`,
-    component: SignInComponent,
-  },
   {
     path: `patientmanagement`,
     component: PatientMangementComponent,

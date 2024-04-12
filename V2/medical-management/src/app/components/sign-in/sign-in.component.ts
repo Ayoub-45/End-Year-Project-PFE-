@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 
 import { FormsModule, NgModel } from '@angular/forms';
 
@@ -8,7 +8,7 @@ export class AppModule {}
   standalone: true,
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
-  imports: [FormsModule],
+  imports: [FormsModule, RouterLink, RouterLinkActive],
   styleUrls: ['./sign-in.component.css'],
 })
 export class SignInComponent implements OnInit {

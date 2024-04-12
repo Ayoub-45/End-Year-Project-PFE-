@@ -1,5 +1,10 @@
 /* sign-in.component.css */
-
+.container-logo {
+  display: flex;
+  width: 200px;
+  height: 200px;
+  margin-bottom: 20px;
+}
 .sign-in-container {
   background-color: #050a30;
   color: #fff;
@@ -12,11 +17,8 @@
   justify-content: center; /* Center items vertically */
   height: 100vh; /* Make the container full height of the viewport */
 }
-.sign-in-container h1 {
-  margin-bottom: 100px;
-}
 .sign-in-container form div {
-  margin-bottom: 12px;
+  margin-bottom: 25px;
 }
 
 .sign-in-container form label {
