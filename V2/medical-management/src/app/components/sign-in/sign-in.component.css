@@ -1,3 +1,56 @@
-.nav {
-  display: none;
+/* sign-in.component.css */
+
+.sign-in-container {
+  background-color: #050a30;
+  color: #fff;
+  padding: 20px;
+  width: 100vw; /* Adjust container width as needed */
+  margin: auto; /* Center the container horizontally */
+  display: flex;
+  flex-direction: column; /* Align items vertically */
+  align-items: center; /* Center items horizontally */
+  justify-content: center; /* Center items vertically */
+  height: 100vh; /* Make the container full height of the viewport */
+}
+.sign-in-container h1 {
+  margin-bottom: 100px;
+}
+.sign-in-container form div {
+  margin-bottom: 12px;
+}
+
+.sign-in-container form label {
+  display: block;
+}
+
+.sign-in-container form input[type="text"],
+.sign-in-container form input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.sign-in-container form button {
+  background-color: #007bff; /* Blue button color */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.sign-in-container form button:hover {
+  background-color: #0056b3; /* Darker blue color on hover */
+}
+
+.sign-in-container a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  margin-top: 10px;
+}
+
+.sign-in-container a:hover {
+  text-decoration: underline;
 }

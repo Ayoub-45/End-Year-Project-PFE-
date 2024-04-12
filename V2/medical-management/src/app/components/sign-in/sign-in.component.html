@@ -1,25 +1,28 @@
-<h2>Sign In</h2>
-<form (ngSubmit)="onSubmit()">
-  <div>
-    <label for="username">Username or Email</label>
-    <input
-      type="text"
-      id="username"
-      [(ngModel)]="username"
-      name="username"
-      required
-    />
-  </div>
-  <div>
-    <label for="password">Password</label>
-    <input
-      type="password"
-      id="password"
-      [(ngModel)]="password"
-      name="password"
-      required
-    />
-  </div>
-  <button type="submit" routerLink="/home">Sign In</button>
-</form>
-<a routerLink="/forgot-password">Forgot Password?</a>
+<!-- sign-in.component.html -->
+<div class="sign-in-container">
+  <h1>Welcome to medical clinics</h1>
+  <form (ngSubmit)="onSubmit()">
+    <div>
+      <label for="username">Username or Email</label>
+      <input
+        type="text"
+        id="username"
+        [(ngModel)]="username"
+        name="username"
+        required
+      />
+    </div>
+    <div>
+      <label for="password">Password</label>
+      <input
+        type="password"
+        id="password"
+        [(ngModel)]="password"
+        name="password"
+        required
+      />
+    </div>
+    <button type="submit" routerLink="/home">Sign In</button>
+  </form>
+  <a routerLink="/forgot-password">Forgot Password?</a>
+</div>

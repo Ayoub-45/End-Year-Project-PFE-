@@ -64,8 +64,16 @@ a:active {
 }
 
 /* Media Query for smaller screens */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 500px) {
   .navigation {
-    font-size: 14px; /* Further decrease font size for smaller screens */
+    font-size: 18px; /* Decrease font size for smaller screens */
+  }
+
+  .navigation li {
+    margin-right: 20px; /* Adjust spacing between navigation items */
+  }
+
+  a {
+    padding: 10px; /* Adjust padding for smaller screens */
   }
 }
