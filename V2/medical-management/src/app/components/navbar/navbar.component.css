@@ -5,28 +5,33 @@ Font:Roboto,
 h1 {
   font-family: "Roboto", sans-serif;
 }
+
 .logo {
   width: 150px;
   height: 150px;
 }
+
 .nav {
   background-color: #050a30;
   width: 100vw;
   height: 150px;
   display: flex;
   justify-content: space-between;
+  align-items: center; /* Centering items vertically */
+  padding: 0 20px; /* Add padding to the sides */
 }
+
 .navigation {
   list-style: none;
   display: flex;
   color: #fff;
-  align-items: center;
-  justify-content: space-between;
-  gap: 50px;
-  font-size: 22px;
-  font-family: "Roboto";
-  margin-right: 50px;
+  font-size: 18px; /* Decrease font size for smaller screens */
 }
+
+.navigation li {
+  margin-right: 20px; /* Adjust spacing between navigation items */
+}
+
 a {
   text-decoration: none;
   text-transform: uppercase;
@@ -56,4 +61,11 @@ a:active {
 }
 .span {
   color: #fff;
+}
+
+/* Media Query for smaller screens */
+@media screen and (max-width: 768px) {
+  .navigation {
+    font-size: 14px; /* Further decrease font size for smaller screens */
+  }
 }
