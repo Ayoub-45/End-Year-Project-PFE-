@@ -1,1 +1,32 @@
-<p>patient-details works!</p>
+<table class="table">
+  <tr>
+    <th>code</th>
+    <th>nom</th>
+    <th>prenom</th>
+    <th>sexe</th>
+    <th>adresse</th>
+    <th>profession</th>
+    <th>gs</th>
+    <th>rh</th>
+    <th>race</th>
+    <th>poids</th>
+    <th>taille</th>
+    <th>statutMatrimonial</th>
+    <th>date_Naissance</th>
+  </tr>
+  <tr *ngFor="let patient of patients">
+    <td>{{ patient.code }}</td>
+    <td>{{ patient.nom }}</td>
+    <td>{{ patient.prenom }}</td>
+    <td>{{ patient.sexe }}</td>
+    <td>{{ patient.adresse }}</td>
+    <td>{{ patient.profession }}</td>
+    <td>{{ patient.gs }}</td>
+    <td>{{ patient.rh }}</td>
+    <td>{{ patient.race }}</td>
+    <td>{{ patient.poids }}</td>
+    <td>{{ patient.taille }}</td>
+    <td>{{ patient.statutMatrimonial }}</td>
+    <td>{{ patient.date_Naissance | date }}</td>
+  </tr>
+</table>
