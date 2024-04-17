@@ -1,1 +1,30 @@
- 
+/* Anchor Links */
+a {
+  color: black;
+  text-decoration: none;
+}
+
+.back-link {
+  background-color: #050a30;
+  padding: 8px 12px;
+  border-radius: 5px;
+}
+
+.add-patient-link {
+  background-color: #050a30;
+  padding: 8px 12px;
+  border-radius: 5px;
+}
+
+/* Headings */
+h2.patient-management-heading {
+  color: white;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+h3.begin-instructions {
+  color: white;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
