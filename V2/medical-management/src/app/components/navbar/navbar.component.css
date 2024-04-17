@@ -64,13 +64,22 @@ a:active {
 }
 
 /* Media Query for smaller screens */
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 768px) {
+  .nav {
+    flex-direction: column; /* Stack items vertically */
+    height: auto; /* Let it adjust based on content */
+    align-items: flex-start; /* Align items to the start */
+  }
+
   .navigation {
-    font-size: 18px; /* Decrease font size for smaller screens */
+    flex-direction: column; /* Stack navigation items vertically */
+    margin-top: 20px; /* Add some space between logo and navigation */
+    font-size: 14px; /* Decrease font size further for smaller screens */
   }
 
   .navigation li {
-    margin-right: 20px; /* Adjust spacing between navigation items */
+    margin-right: 0; /* Remove right margin */
+    margin-bottom: 10px; /* Add some space between navigation items */
   }
 
   a {
