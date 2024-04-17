@@ -23,13 +23,10 @@
       >Add patient</a
     >
   </div>
-
   <div class="container">
-    <a
-      routerLink="add-patient"
-      class="add-patient"
-      routerLinkActive="patient-link"
-      >Delete Patient</a
-    >
+    <form [formGroup]="applyForm" (submit)="deletePatient()">
+      <input type="number" formControlName="id" />
+      <button class="delete-patient" type="submit">Delete Patient</button>
+    </form>
   </div>
 </div>

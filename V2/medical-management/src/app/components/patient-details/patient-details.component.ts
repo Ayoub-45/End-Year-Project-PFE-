@@ -16,6 +16,5 @@ export class PatientDetailsComponent {
     this.service.fetchData().then((response: Patient[]) => {
       this.patients = response;
     });
-    console.log(this.patients);
   }
 }

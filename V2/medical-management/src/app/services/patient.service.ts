@@ -104,9 +104,10 @@ export class PatientService {
       return error instanceof Error ? error.message : 'Unknown error occurred';
     }
   }
-  async deletePatient(patientId: number): Promise<Patient | string> {
+  async deletePatient(id: number): Promise<Patient | string> {
+    console.log(id);
     try {
-      const response = await fetch(`${this.url}/${patientId}`, {
+      const response = await fetch(`${this.url}/${id}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
