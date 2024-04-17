@@ -1,4 +1,8 @@
-<a routerLink="/home" routerLinkActive="router-link-active">back</a>
+<div class="container">
+  <a routerLink="/home" class="back" routerLinkActive="router-link-active"
+    >Back</a
+  >
+</div>
 <h2>
   Patient management involves the coordinated care and administration of
   healthcare services for individuals within a healthcare system. It encompasses
@@ -10,4 +14,22 @@
   To begin start by Creating ,Displaying ,Deleting and updating the patient
 </h3>
 <app-patient-details></app-patient-details>
-<a routerLink="add-patient" routerLinkActive="add-patient">add patient</a>
+<div class="container-patient">
+  <div class="container">
+    <a
+      routerLink="add-patient"
+      class="add-patient"
+      routerLinkActive="patient-link"
+      >Add patient</a
+    >
+  </div>
+
+  <div class="container">
+    <a
+      routerLink="add-patient"
+      class="add-patient"
+      routerLinkActive="patient-link"
+      >Delete Patient</a
+    >
+  </div>
+</div>
