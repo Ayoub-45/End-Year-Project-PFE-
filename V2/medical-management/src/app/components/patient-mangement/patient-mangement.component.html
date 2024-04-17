@@ -23,10 +23,10 @@
       >Add patient</a
     >
   </div>
-  <div class="container">
-    <form [formGroup]="applyForm" (submit)="deletePatient()">
-      <input type="number" formControlName="id" />
-      <button class="delete-patient" type="submit">Delete Patient</button>
-    </form>
-  </div>
 </div>
+<form [formGroup]="applyForm" (submit)="deletePatient()">
+  <input type="number" formControlName="id" />
+  <div class="container">
+    <a class="delete-patient" type="submit">Delete Patient</a>
+  </div>
+</form>
