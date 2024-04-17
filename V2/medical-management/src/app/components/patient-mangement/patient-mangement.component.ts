@@ -21,6 +21,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './patient-mangement.component.css',
 })
 export class PatientMangementComponent {
+  show!: Boolean;
   applyForm = new FormGroup({
     id: new FormControl(0),
   });
@@ -34,5 +35,8 @@ export class PatientMangementComponent {
       console.log(response);
       alert('Patient deleted successfully, Refresh the browser!');
     }
+  }
+  setShow() {
+    this.show = !this.show;
   }
 }

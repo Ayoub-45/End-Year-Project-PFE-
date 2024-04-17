@@ -1,5 +1,8 @@
 <div class="container">
-  <a routerLink="/home" class="back" routerLinkActive="router-link-active"
+  <a
+    routerLink="/home"
+    class="back container"
+    routerLinkActive="router-link-active"
     >Back</a
   >
 </div>
@@ -18,15 +21,21 @@
   <div class="container">
     <a
       routerLink="add-patient"
-      class="add-patient"
+      class="add-patient container"
       routerLinkActive="patient-link"
       >Add patient</a
     >
   </div>
+  <div class="container">
+    <a class="delete-patient container" (click)="setShow()" type="submit"
+      >Delete Patient</a
+    >
+  </div>
 </div>
 <form [formGroup]="applyForm" (submit)="deletePatient()">
-  <input type="number" formControlName="id" />
-  <div class="container">
-    <a class="delete-patient" type="submit">Delete Patient</a>
+  <div *ngIf="show">
+    <input input type="number" formControlName="id" />
+    <br />
+    <button type="submit" class="container submit">Submit</button>
   </div>
 </form>

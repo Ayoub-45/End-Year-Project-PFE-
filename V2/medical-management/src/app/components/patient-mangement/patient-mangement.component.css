@@ -25,7 +25,9 @@ h3.begin-instructions {
 
 .delete-patient,
 .back,
-.add-patient {
+.add-patient,
+.submit {
+  cursor: pointer;
   padding: 12px;
   background: #050a30;
   color: #fff;
@@ -36,7 +38,19 @@ h3.begin-instructions {
   margin-left: 8px;
   border-radius: 15px;
 }
+
 .container-patient {
   display: flex;
   gap: 12px;
+}
+form input[type="text"],
+form input[type="number"],
+form select,
+form input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #050a30; /* Dark blue border */
+  border-radius: 5px;
+  background-color: #f9f9f9; /* Light gray background */
+  transition: border-color 0.3s ease-in-out; /* Smooth border transition */
 }
