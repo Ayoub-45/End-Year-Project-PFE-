@@ -101,7 +101,7 @@ namespace MedicalThyroidReports.Controllers
         /// Updates a patient by ID.
         /// </summary>
 
-        [HttpPut]
+        [HttpPatch]
         public async Task<IActionResult> UpdatePatient(int id,[FromBody] Patient updatedPatient)
         {
             try

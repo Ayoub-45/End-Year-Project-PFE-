@@ -1,0 +1,177 @@
+<form [formGroup]="applyForm" class="form-horizontal">
+  <div class="form-group row">
+    <label for="code" class="col-md-2 col-form-label">code</label>
+    <div class="col-md-10">
+      <input
+        type="text"
+        placeholder="code"
+        formControlName="code"
+        class="form-control"
+      />
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="nom" class="col-md-2 col-form-label">nom</label>
+    <div class="col-md-10">
+      <input
+        type="text"
+        placeholder="nom"
+        formControlName="nom"
+        class="form-control"
+      />
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="sexe" class="col-md-2 col-form-label">sexe</label>
+    <div class="col-md-10">
+      <select formControlName="sexe" class="form-control">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="address" class="col-md-2 col-form-label">address</label>
+    <div class="col-md-10">
+      <input
+        type="text"
+        placeholder="address"
+        formControlName="adresse"
+        class="form-control"
+      />
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="prenom" class="col-md-2 col-form-label">prenom</label>
+    <div class="col-md-10">
+      <input
+        type="text"
+        placeholder="prenom"
+        formControlName="prenom"
+        class="form-control"
+      />
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="profession" class="col-md-2 col-form-label">profession</label>
+    <div class="col-md-10">
+      <input
+        type="text"
+        id="profession"
+        placeholder="profession"
+        formControlName="profession"
+        class="form-control"
+      />
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="gs" class="col-md-2 col-form-label">gs</label>
+    <div class="col-md-10">
+      <input
+        type="text"
+        id="gs"
+        placeholder="gs"
+        formControlName="gs"
+        class="form-control"
+      />
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="rh" class="col-md-2 col-form-label">rh</label>
+    <div class="col-md-10">
+      <input
+        type="number"
+        id="rh"
+        placeholder="rh"
+        formControlName="rh"
+        class="form-control"
+      />
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="race" class="col-md-2 col-form-label">race</label>
+    <div class="col-md-10">
+      <input
+        type="text"
+        id="race"
+        placeholder="race"
+        formControlName="race"
+        class="form-control"
+      />
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="poids" class="col-md-2 col-form-label">poids</label>
+    <div class="col-md-10">
+      <input
+        type="number"
+        id="poids"
+        placeholder="poids"
+        formControlName="poids"
+        class="form-control"
+      />
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="taille" class="col-md-2 col-form-label">taille</label>
+    <div class="col-md-10">
+      <input
+        type="number"
+        id="taille"
+        placeholder="taille"
+        formControlName="taille"
+        class="form-control"
+      />
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="statutMatrimonial" class="col-md-2 col-form-label"
+      >statutMatrimonial</label
+    >
+    <div class="col-md-10">
+      <input
+        type="text"
+        id="statutMatrimonial"
+        placeholder="statutMatrimonial"
+        formControlName="statutMatrimonial"
+        class="form-control"
+      />
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="date_Naissance" class="col-md-2 col-form-label"
+      >date_Naissance</label
+    >
+    <div class="col-md-10">
+      <input
+        type="date"
+        id="date_Naissance"
+        placeholder="date_Naissance"
+        formControlName="date_Naissance"
+        class="form-control"
+      />
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="offset-md-2 col-md-10">
+      <button
+        cButton
+        color="dark"
+        type="submit"
+        (click)="submitApplication()"
+        class="mg-10"
+      >
+        Add patient
+      </button>
+      <button
+        cButton
+        (click)="clearForm()"
+        color="dark"
+        class="mg-10"
+        style="margin-left: 10px"
+      >
+        Reset
+      </button>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,70 @@
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+/>
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+/>
+<style>
+  .material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+    cursor: pointer;
+  }
+</style>
+<div *ngIf="isLoading" style="text-align: center">
+  <c-spinner></c-spinner>
+</div>
+<div *ngIf="!isLoading">
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">code</th>
+        <th scope="col">nom</th>
+        <th scope="col">prenom</th>
+        <th scope="col">sexe</th>
+        <th scope="col">adresse</th>
+        <th scope="col">profession</th>
+        <th scope="col">gs</th>
+        <th scope="col">rh</th>
+        <th scope="col">race</th>
+        <th scope="col">poids</th>
+        <th scope="col">taille</th>
+        <th scope="col">statutMatrimonial</th>
+        <th scope="col">date_Naissance</th>
+        <th scope="col">edit/delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let patient of patients">
+        <td>{{ patient.code }}</td>
+        <td>{{ patient.nom }}</td>
+        <td>{{ patient.prenom }}</td>
+        <td>{{ patient.sexe }}</td>
+        <td>{{ patient.adresse }}</td>
+        <td>{{ patient.profession }}</td>
+        <td>{{ patient.gs }}</td>
+        <td>{{ patient.rh }}</td>
+        <td>{{ patient.race }}</td>
+        <td>{{ patient.poids }}</td>
+        <td>{{ patient.taille }}</td>
+        <td>{{ patient.statutMatrimonial }}</td>
+        <td>{{ patient.date_Naissance | date }}</td>
+        <td>
+          <a routerLink="/{{ patient.id }}/edit-patient">
+            <span class="material-symbols-outlined"> edit </span>
+          </a>
+          <span
+            class="material-symbols-outlined"
+            (click)="deletePatient(patient.id)"
+          >
+            delete
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <a routerLink="/add-patient" routerLinkActive="add-patient">
+    <button cButton color="dark" class="mg-10">Add patient</button>
+  </a>
+</div>

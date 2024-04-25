@@ -1,15 +1,10 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit, inject } from '@angular/core';
-import { PatientService } from '../../services/patient.service';
-import { PatientDetailsComponent } from '../patient-details/patient-details.component';
-
+import { Component } from '@angular/core';
+import { GetAllpatientsComponent } from '../get-allpatients/get-allpatients.component';
 @Component({
   selector: 'app-patient',
   standalone: true,
-  imports: [PatientDetailsComponent],
+  imports: [GetAllpatientsComponent],
   templateUrl: './patient.component.html',
-  styleUrl: './patient.component.css',
+  styleUrl: './patient.component.scss',
 })
-export class PatientComponent {
-  title = 'Patients';
-}
+export class PatientComponent {}
