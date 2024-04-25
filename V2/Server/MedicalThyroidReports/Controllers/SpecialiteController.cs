@@ -41,7 +41,7 @@ namespace MedicalThyroidReports.Controllers
                 return CreatedAtAction(nameof(Get), new { id = specialite.Id }, specialite);
             }
 
-            [HttpPut("{id}")]
+            [HttpPatch("{id}")]
             public IActionResult Put(int id, [FromBody] Specialite specialite)
             {
                 if (id != specialite.Id)

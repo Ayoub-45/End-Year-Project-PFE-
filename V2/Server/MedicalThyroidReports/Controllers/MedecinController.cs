@@ -51,8 +51,8 @@ namespace MedicalThyroidReports.Controllers
         }
 
 
-        // PUT: api/Medecin/5
-        [HttpPut("{id}")]
+        // PAtch: api/Medecin/5
+        [HttpPatch("{id}")]
         public async Task<IActionResult> Update(int id, [FromBody] Medecin medecin)
         {
             if (id != medecin.Id)

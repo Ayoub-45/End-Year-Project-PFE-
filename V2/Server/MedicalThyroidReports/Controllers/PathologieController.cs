@@ -41,7 +41,7 @@ public class PathologieController : ControllerBase
         return CreatedAtAction(nameof(Get), new { id = pathologie.Id }, pathologie);
     }
 
-    [HttpPut("{id}")]
+    [HttpPatch("{id}")]
     public IActionResult Put(int id, [FromBody] Pathologie pathologie)
     {
         var existingPathologie = _pathologieRepository.GetPathologieById(id);

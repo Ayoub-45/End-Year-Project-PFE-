@@ -52,7 +52,7 @@ public class ExamenController : ControllerBase
         }
 
         // PUT: api/Examen/5
-        [HttpPut("{id}")]
+        [HttpPatch("{id}")]
     public async Task<IActionResult> Update(long id, [FromBody] Examen examen)
     {
         if (id != examen.Id)
