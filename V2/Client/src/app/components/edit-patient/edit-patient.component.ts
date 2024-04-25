@@ -67,9 +67,14 @@ export class EditPatientComponent implements OnInit {
   }
   async updatePatient() {
     const updatedPatientData = this.patientForm.value;
-    const response = await this.PatientService.updatePatient(
-      this.patientId,
-      updatedPatientData
-    );
+    try {
+      const response = await this.PatientService.updatePatient(
+        this.patientId,
+        updatedPatientData
+      );
+      console.log('Patient successfully updated', response);
+    } catch (error) {
+      console.error(error);
+    }
   }
 }

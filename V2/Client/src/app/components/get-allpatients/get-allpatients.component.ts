@@ -46,9 +46,4 @@ export class GetAllpatientsComponent {
         console.error(err);
       });
   }
-  async editPatient(id: number, patient: Partial<Patient>) {
-    this.service.updatePatient(id, patient).then((res) => {
-      console.log(res);
-    });
-  }
 }
