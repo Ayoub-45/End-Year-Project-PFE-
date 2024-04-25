@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { GetAllpatientsComponent } from '../get-allpatients/get-allpatients.component';
+import { GetAllpatientsComponent } from '../get-delete-allpatients/get-allpatients.component';
 @Component({
   selector: 'app-patient',
   standalone: true,
