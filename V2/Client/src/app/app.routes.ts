@@ -3,6 +3,7 @@ import { DefaultLayoutComponent } from './layout';
 import { PatientComponent } from '../app/components/patient/patient.component';
 import { AddPatientComponent } from '../app/components/add-patient/add-patient.component';
 import { EditPatientComponent } from '../app/components/edit-patient/edit-patient.component';
+import { DoctorComponent } from '../app/components/doctor/doctor.component';
 export const routes: Routes = [
   {
     path: '',
@@ -18,6 +19,13 @@ export const routes: Routes = [
     },
 
     children: [
+      {
+        path: 'doctor',
+        component: DoctorComponent,
+        data: {
+          title: 'Doctor managment',
+        },
+      },
       {
         path: 'patient',
         component: PatientComponent,

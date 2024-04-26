@@ -60,7 +60,7 @@ namespace MedicalThyroidReportsAPI.Controllers
 
             
         }
-        [HttpPut("{id}")]
+        [HttpPatch("{id}")]
         public async Task<IActionResult> ModifyPatient(int id, [FromBody] Patient patient)
         {
             try
