@@ -1,0 +1,48 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Corrected */
+  justify-content: center;
+  gap: 50px;
+}
+
+.logo {
+  width: 250px;
+  height: 250px;
+}
+.thyroid-image {
+  height: 500px;
+  width: 500px;
+  border-radius: 50%;
+}
+.container-2 {
+  text-align: center;
+  color: #cc2b31;
+  font-family: "Montserrat", sans-serif;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"],
+button {
+  margin-bottom: 10px;
+  width: 100%;
+  padding: 15px;
+  border-radius: 5px;
+  border: none;
+  border: 1px 1px #cc2b31 solid;
+}
+.info {
+  cursor: pointer;
+  color: #cc2b31;
+}
+button {
+  background-color: #fff;
+  color: #cc2b31;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+button:hover {
+  background-color: #eee;
+}
