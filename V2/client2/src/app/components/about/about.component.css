@@ -5,8 +5,8 @@
 
 .logo {
   position: relative;
-  top: -90px; /* Adjust as needed */
-  left: -15px; /* Adjust as needed */
+  top: -30px; /* Adjust as needed */
+  left: 15px; /* Adjust as needed */
   z-index: 1000;
   cursor: pointer;
 }
@@ -35,7 +35,7 @@
 }
 
 .image-on-right {
-  width: 100%; /* Adjust as needed */
+  width: 50%; /* Adjust as needed */
 }
 .sign-in {
   background-color: #cc2b31;
