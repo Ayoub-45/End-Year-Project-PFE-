@@ -46,7 +46,7 @@ namespace MedicalThyroidReports.Repostories
                 }
             }
         }
-C<Specialite> GetAllSpecialtes()
+List<Specialite> GetAllSpecialtes()
         {
             List<Specialite> specialtes = new List<Specialite>();
             using (var connection = new MySql.Data.MySqlClient.MySqlConnection(_connectionString))

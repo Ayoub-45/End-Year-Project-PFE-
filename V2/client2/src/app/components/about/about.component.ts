@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { LogoComponent } from '../../reusable-components/logo/logo.component';
-import { animate, style, transition, trigger } from '@angular/animations';
 import { LoadingScreenComponent } from '../../reusable-components/loading-screen/loading-screen.component';
 
 @Component({
@@ -9,15 +8,6 @@ import { LoadingScreenComponent } from '../../reusable-components/loading-screen
   imports: [LogoComponent, LoadingScreenComponent],
   templateUrl: './about.component.html',
   styleUrl: './about.component.css',
-  animations: [
-    trigger('fadeInOut', [
-      transition(':enter', [
-        style({ opacity: 0 }),
-        animate('500ms ease-out', style({ opacity: 1 })),
-      ]),
-      transition(':leave', [animate('500ms ease-in', style({ opacity: 0 }))]),
-    ]),
-  ],
 })
 export class AboutComponent {
   isloading = true;
