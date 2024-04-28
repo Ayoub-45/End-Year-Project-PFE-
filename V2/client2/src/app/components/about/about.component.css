@@ -1,0 +1,53 @@
+.container-about {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  position: relative;
+  top: -50px; /* Adjust as needed */
+  left: 20px; /* Adjust as needed */
+  z-index: 1000;
+  cursor: pointer;
+}
+
+.title {
+  text-transform: uppercase;
+  margin-top: 20px; /* Adjust as needed */
+  margin-left: 10px; /* Adjust as needed */
+  color: #cc2b31;
+}
+
+.content-text {
+  margin-top: 10px; /* Adjust as needed */
+  margin-left: 10px; /* Adjust as needed */
+  font-size: 18px; /* Adjust as needed */
+}
+
+.cover {
+  position: relative;
+  top: -300px;
+  flex: 1; /* Take remaining space */
+  padding: 20px; /* Adjust as needed */
+  border-radius: 50%;
+}
+
+.image-on-right {
+  width: 50%; /* Adjust as needed */
+}
+.sign-in {
+  background-color: #cc2b31;
+  color: #fff;
+}
+.sign-in:hover {
+  background-color: #cc5155;
+}
+button {
+  cursor: pointer;
+  color: #cc2b31;
+}
+.buttons {
+  margin-left: 50px;
+  display: flex;
+  gap: 20px;
+}
