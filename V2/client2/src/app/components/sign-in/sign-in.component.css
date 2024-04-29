@@ -28,9 +28,10 @@ button {
   border: none;
   border: 1px 1px #cc2b31 solid;
 }
-.info {
+a {
   cursor: pointer;
   color: #cc2b31;
+  text-decoration: none;
 }
 button {
   background-color: #fff;
@@ -40,7 +41,4 @@ button {
 }
 button:hover {
   background-color: #eee;
-}
-.home-page {
-  cursor: pointer;
 }
