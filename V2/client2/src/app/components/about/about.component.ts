@@ -5,6 +5,7 @@ import { About } from '../../interfaces/about';
 import { AboutService } from '../../services/about/about.service';
 import { NgIf } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { TIME_LOADING } from '../../constants';
 @Component({
   selector: 'app-about',
   standalone: true,
@@ -20,7 +21,7 @@ export class AboutComponent {
       this.content = response[0].content;
       setTimeout(() => {
         this.isLoading = false;
-      }, 1000);
+      }, TIME_LOADING);
     });
   }
   async getContent() {

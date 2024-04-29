@@ -38,7 +38,9 @@ button {
   cursor: pointer;
   font-size: 18px;
 }
-
 button:hover {
   background-color: #eee;
+}
+.home-page {
+  cursor: pointer;
 }

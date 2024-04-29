@@ -1,6 +1,8 @@
 <div>
   <app-loading-screen *ngIf="isLoading"></app-loading-screen>
-  <app-logo *ngIf="!isLoading" class="logo"></app-logo>
+  <a class="home-page" routerLink="">
+    <app-logo *ngIf="!isLoading" class="logo"></app-logo>
+  </a>
 </div>
 <div class="container-about" *ngIf="!isLoading">
   <div class="content">

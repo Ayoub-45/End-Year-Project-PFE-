@@ -1,7 +1,9 @@
 <app-loading-screen *ngIf="isLoading"></app-loading-screen>
 <div *ngIf="!isLoading" class="container">
   <div>
-    <app-logo></app-logo>
+    <a class="home-page" routerLink="">
+      <app-logo *ngIf="!isLoading" class="logo"></app-logo>
+    </a>
     <div class="container-2">
       <form>
         <input type="email" name="email" placeholder="Email" required />
