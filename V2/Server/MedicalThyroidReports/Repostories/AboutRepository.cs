@@ -5,7 +5,7 @@ namespace MedicalThyroidReports.Repostories
     public class AboutRepository
     {
         public string _connectionString;
-        AboutRepository(IConfiguration configuration) {
+        public AboutRepository(IConfiguration configuration) {
             _connectionString = configuration.GetConnectionString("Default");
         }
         //Perform the CRUD Operations for About content

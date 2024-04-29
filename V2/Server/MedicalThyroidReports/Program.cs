@@ -10,7 +10,8 @@ builder.Services.AddScoped<PatientRepository>();
 builder.Services.AddScoped<PathologieRepository>();
 builder.Services.AddScoped<SpecialiteRepository>();
 builder.Services.AddScoped<ExamenRepository>();
-builder.Services.AddScoped<MedecinRepository>();    
+builder.Services.AddScoped<MedecinRepository>();
+builder.Services.AddScoped<AboutRepository>();
 builder.Services.AddMvc(options =>
 {
     options.SuppressAsyncSuffixInActionNames = false;
