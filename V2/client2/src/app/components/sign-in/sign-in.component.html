@@ -1,4 +1,5 @@
-<div class="container">
+<app-loading-screen *ngIf="isLoading"></app-loading-screen>
+<div *ngIf="!isLoading" class="container">
   <div>
     <app-logo></app-logo>
     <div class="container-2">

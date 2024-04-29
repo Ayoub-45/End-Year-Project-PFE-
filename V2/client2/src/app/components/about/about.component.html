@@ -1,7 +1,8 @@
 <div>
-  <app-logo class="logo"></app-logo>
+  <app-loading-screen *ngIf="isLoading"></app-loading-screen>
+  <app-logo *ngIf="!isLoading" class="logo"></app-logo>
 </div>
-<div class="container-about">
+<div class="container-about" *ngIf="!isLoading">
   <div class="content">
     <h1 class="title">About Us</h1>
     <p class="content-text">
@@ -10,7 +11,9 @@
     </p>
     <div class="buttons">
       <button class="btn">Learn more</button>
-      <button class="btn sign-in">Sign in</button>
+      <a routerLink="sign-in">
+        <button class="btn sign-in">Sign in</button>
+      </a>
     </div>
   </div>
   <img
