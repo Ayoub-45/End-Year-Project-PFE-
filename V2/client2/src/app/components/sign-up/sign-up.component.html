@@ -1,43 +1,59 @@
-<form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
-    <h2 class="form-header">Registration Form</h2>
-  
-    <div class="form-group">
-      <label for="firstName">First Name</label>
-      <input type="text" class="form-control" id="firstName" formControlName="firstName" placeholder="Enter First Name">
-      <div *ngIf="registrationForm.get('firstName').hasError('required')" class="error-message">
-        First Name is required
-      </div>
+<app-logo></app-logo>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <form>
+        <div class="form-group">
+          <label for="first-name">First Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="first-name"
+            placeholder="Enter your first name"
+          />
+        </div>
+        <div class="form-group">
+          <label for="last-name">Last Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="last-name"
+            placeholder="Enter your last name"
+          />
+        </div>
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            aria-describedby="emailHelp"
+            placeholder="Enter email"
+          />
+          <small id="emailHelp" class="form-text text-muted"
+            >We'll never share your email with anyone else.</small
+          >
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            placeholder="Password"
+          />
+        </div>
+        <div class="form-group">
+          <label for="confirm-password">Confirm Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="confirm-password"
+            placeholder="Confirm Password"
+          />
+        </div>
+        <button type="submit" class="btn submit">Submit</button>
+      </form>
     </div>
-  
-    <div class="form-group">
-      <label for="lastName">Last Name</label>
-      <input type="text" class="form-control" id="lastName" formControlName="lastName" placeholder="Enter Last Name">
-      <div *ngIf="registrationForm.get('lastName').hasError('required')" class="error-message">
-        Last Name is required
-      </div>
-    </div>
-  
-    <div class="form-group">
-      <label for="email">Email Address</label>
-      <input type="email" class="form-control" id="email" formControlName="email" placeholder="Enter Email Address">
-      <div *ngIf="registrationForm.get('email').hasError('required')" class="error-message">
-        Email is required
-      </div>
-      <div *ngIf="registrationForm.get('email').hasError('email')" class="error-message">
-        Please enter a valid email address
-      </div>
-    </div>
-  
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input type="password" class="form-control" id="password" formControlName="password" placeholder="Enter Password">
-      <div *ngIf="registrationForm.get('password').hasError('required')" class="error-message">
-        Password is required
-      </div>
-      <div *ngIf="registrationForm.get('password').hasError('minlength')" class="error-message">
-        Password must be at least 6 characters long
-      </div>
-    </div>
-  
-    <div class="
-  
+  </div>
+</div>

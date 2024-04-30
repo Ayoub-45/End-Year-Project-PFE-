@@ -1,11 +1,12 @@
 import { NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { LogoComponent } from '../../reusable-components/logo/logo.component';
 
 @Component({
   selector: 'app-sign-up',
   standalone: true,
-  imports: [NgIf],
+  imports: [NgIf,LogoComponent],
   templateUrl: './sign-up.component.html',
   styleUrl: './sign-up.component.css',
 })

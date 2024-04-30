@@ -1,0 +1,13 @@
+.form-group {
+  margin-bottom: 20px;
+  font-family: "Montserrat", sans-serif;
+  color: #1e0a0b;
+  font-weight: bold;
+}
+.submit {
+  background-color: #cc2b31;
+  color: #fff;
+}
+.submit:hover {
+  background-color: #be4b4f;
+}
