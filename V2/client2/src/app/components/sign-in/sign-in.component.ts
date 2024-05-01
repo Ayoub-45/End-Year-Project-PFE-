@@ -29,6 +29,7 @@ export class SignInComponent {
     setTimeout(() => {
       this.isLoading = false;
     }, TIME_LOADING);
+    console.log(TIME_LOADING);
   }
   onSubmit() {
     console.warn(this.formGroup.value);
