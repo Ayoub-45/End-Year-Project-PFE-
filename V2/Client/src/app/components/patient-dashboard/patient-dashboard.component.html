@@ -13,4 +13,8 @@
     <p><strong>Marital Status:</strong> {{ patient.statutMatrimonial }}</p>
     <p><strong>Date of Birth:</strong> {{ patient.date_Naissance | date }}</p>
   </div>
+  <div>
+    <h3>Here are the list Exams you made , {{ this.patient.prenom }}</h3>
+    <app-exam [idPatient]="patient.id"></app-exam>
+  </div>
 </div>

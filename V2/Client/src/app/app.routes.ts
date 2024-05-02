@@ -5,6 +5,7 @@ import { AddPatientComponent } from '../app/components/add-patient/add-patient.c
 import { EditPatientComponent } from '../app/components/edit-patient/edit-patient.component';
 import { DoctorComponent } from '../app/components/doctor/doctor.component';
 import { PatientDashboardComponent } from '../app/components/patient-dashboard/patient-dashboard.component';
+import { AddExamComponent } from '../app/components/add-exam/add-exam.component';
 export const routes: Routes = [
   {
     path: '',
@@ -53,6 +54,13 @@ export const routes: Routes = [
         component: EditPatientComponent,
         data: {
           title: 'Edit patient',
+        },
+      },
+      {
+        path: ':idPatient/patient-dashboard/add-exam',
+        component: AddExamComponent,
+        data: {
+          title: 'Add exam',
         },
       },
 

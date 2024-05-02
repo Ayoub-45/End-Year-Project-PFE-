@@ -1,1 +1,21 @@
-<p>exam works!</p>
+<button cButton color="dark" type="submit" class="mg-10">
+  <a routerLink="/{{ idPatient }}/patient-dashboard/add-exam">+</a>
+</button>
+<div class="exam-list">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Pathology ID</th>
+        <th>Doctor ID</th>
+        <th>Date of Exam</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let exam of Examens">
+        <td>{{ exam.idPathologie }}</td>
+        <td>{{ exam.idMedecin }}</td>
+        <td>{{ exam.date_Examen | date }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
