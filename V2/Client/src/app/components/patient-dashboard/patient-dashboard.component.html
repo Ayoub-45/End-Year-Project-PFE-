@@ -1,0 +1,16 @@
+<div class="container">
+  <h1>Welcome, {{ patient.prenom }} {{ patient.nom }}</h1>
+  <p>Discover pertinent information regarding your thyroid condition:</p>
+  <div class="patient-details">
+    <p><strong>Gender:</strong> {{ patient.sexe }}</p>
+    <p><strong>Address:</strong> {{ patient.adresse }}</p>
+    <p><strong>Profession:</strong> {{ patient.profession }}</p>
+    <p><strong>Blood Group:</strong> {{ patient.gs }}</p>
+    <p><strong>RH Factor:</strong> {{ patient.rh }}</p>
+    <p><strong>Race:</strong> {{ patient.race }}</p>
+    <p><strong>Weight:</strong> {{ patient.poids }} kg</p>
+    <p><strong>Height:</strong> {{ patient.taille }} cm</p>
+    <p><strong>Marital Status:</strong> {{ patient.statutMatrimonial }}</p>
+    <p><strong>Date of Birth:</strong> {{ patient.date_Naissance | date }}</p>
+  </div>
+</div>

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { ButtonDirective, ButtonModule } from '@coreui/angular';
 import { Patient } from 'src/app/interfaces/patient';
-import { PatientService } from 'src/app/services/patient-service.service';
+import { PatientService } from 'src/app/services/patient/patient-service.service';
 @Component({
   selector: 'app-add-patient',
   standalone: true,

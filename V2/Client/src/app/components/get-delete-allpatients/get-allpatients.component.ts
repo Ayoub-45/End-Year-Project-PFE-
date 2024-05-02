@@ -1,6 +1,6 @@
 import { DatePipe, NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
-import { PatientService } from '../../services/patient-service.service';
+import { PatientService } from '../../services/patient/patient-service.service';
 import { Patient } from 'src/app/interfaces/patient';
 import {
   ButtonModule,
@@ -45,5 +45,8 @@ export class GetAllpatientsComponent {
       .catch((err) => {
         console.error(err);
       });
+  }
+  async viewPatient(id: number) {
+    return (await this.service.getPatientById(id)) ?? {};
   }
 }

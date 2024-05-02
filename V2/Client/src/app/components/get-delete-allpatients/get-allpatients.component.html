@@ -32,7 +32,7 @@
         <th scope="col">taille</th>
         <th scope="col">statutMatrimonial</th>
         <th scope="col">date_Naissance</th>
-        <th scope="col">edit/delete</th>
+        <th scope="col">edit/delete/view</th>
       </tr>
     </thead>
     <tbody>
@@ -60,6 +60,14 @@
           >
             delete
           </span>
+          <a routerLink="/{{ patient.id }}/patient-dashboard">
+            <span
+              class="material-symbols-outlined"
+              (click)="viewPatient(patient.id)"
+            >
+              Visibility
+            </span>
+          </a>
         </td>
       </tr>
     </tbody>
