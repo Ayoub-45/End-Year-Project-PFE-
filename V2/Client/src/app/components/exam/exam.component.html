@@ -6,14 +6,16 @@
     <thead>
       <tr>
         <th>Pathology ID</th>
-        <th>Doctor ID</th>
+        <th>Doctor</th>
         <th>Date of Exam</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let exam of Examens">
         <td>{{ exam.idPathologie }}</td>
-        <td>{{ exam.idMedecin }}</td>
+        <td>
+          <app-related-doctor [idMedecin]="exam.idMedecin"></app-related-doctor>
+        </td>
         <td>{{ exam.date_Examen | date }}</td>
       </tr>
     </tbody>
