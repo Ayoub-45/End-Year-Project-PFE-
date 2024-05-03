@@ -1,4 +1,4 @@
-import { Component, Input, input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Specialite } from 'src/app/interfaces/specialite';
 import { SpecialiteService } from 'src/app/services/specialite/specialite.service';
 

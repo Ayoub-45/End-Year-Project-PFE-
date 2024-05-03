@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, input } from '@angular/core';
 import { Doctor } from 'src/app/interfaces/doctor';
 import { DoctorService } from 'src/app/services/doctor/doctor-service.service';
 
@@ -10,14 +10,18 @@ import { DoctorService } from 'src/app/services/doctor/doctor-service.service';
   styleUrl: './related-doctor.component.scss',
 })
 export class RelatedDoctorComponent {
-  @Input() idMedecin!: number;
+  @Input() id!: number;
   doctor!: Doctor;
   constructor(private doctorService: DoctorService) {
-    this.getRelatedDoctor().then((response: any) => {
-      this.doctor = response[0];
-    });
-  }
-  async getRelatedDoctor() {
-    return await this.doctorService.fetchData();
+    this.doctorService
+      .fetchData()
+      .then((response) => {
+        this.doctor = response.find((d: Doctor) => {
+          return d.id === this.id;
+        });
+      })
+      .catch((err) => {
+        console.error('Error fetch data');
+      });
   }
 }

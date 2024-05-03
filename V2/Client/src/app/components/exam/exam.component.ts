@@ -4,9 +4,8 @@ import { RouterModule } from '@angular/router';
 import { ButtonModule } from '@coreui/angular';
 import { Exam } from 'src/app/interfaces/exam';
 import { ExamService } from 'src/app/services/exam/exam.service';
-import { DoctorService } from 'src/app/services/doctor/doctor-service.service';
-import { Doctor } from 'src/app/interfaces/doctor';
 import { RelatedDoctorComponent } from 'src/app/components/related-doctor/related-doctor.component';
+import { PathologieComponent } from 'src/app/components/pathologie/pathologie.component';
 @Component({
   selector: 'app-exam',
   standalone: true,
@@ -16,21 +15,20 @@ import { RelatedDoctorComponent } from 'src/app/components/related-doctor/relate
     ButtonModule,
     RouterModule,
     RelatedDoctorComponent,
+    PathologieComponent,
   ],
   templateUrl: './exam.component.html',
   styleUrl: './exam.component.scss',
 })
 export class ExamComponent {
   Examens!: Exam[];
-  Doctors!: Doctor[];
   @Input() idPatient!: number;
-
   constructor(private examService: ExamService) {
-    this.getExamsOfRelatedPatient(this.idPatient);
-  }
-  getExamsOfRelatedPatient(id: number) {
-    this.examService.fetchData().then((response: any) => {
-      this.Examens = response as Exam[];
+    this.getExamsOfRelatedPatient().then((response: any) => {
+      this.Examens = response;
     });
+  }
+  async getExamsOfRelatedPatient() {
+    return this.examService.fetchData();
   }
 }

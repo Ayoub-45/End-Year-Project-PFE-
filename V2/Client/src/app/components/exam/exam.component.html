@@ -5,18 +5,20 @@
   <table class="table">
     <thead>
       <tr>
-        <th>Pathology ID</th>
-        <th>Doctor</th>
+        <th>Pathologie</th>
+        <th>Medecin</th>
         <th>Date of Exam</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let exam of Examens">
-        <td>{{ exam.idPathologie }}</td>
+      <tr *ngFor="let examen of Examens">
         <td>
-          <app-related-doctor [idMedecin]="exam.idMedecin"></app-related-doctor>
+          <app-pathologie [id]="examen.idPathologie"></app-pathologie>
         </td>
-        <td>{{ exam.date_Examen | date }}</td>
+        <td>
+          <app-related-doctor [id]="examen.idMedecin"></app-related-doctor>
+        </td>
+        <td>{{ examen.date_Examen | date }}</td>
       </tr>
     </tbody>
   </table>
