@@ -1,0 +1,18 @@
+<div class="exam-list">
+  <div *ngFor="let exam of exams" class="card">
+    <div class="card-header">Exam ID: {{ exam.id }}</div>
+    <div class="card-body">
+      <p class="card-text">
+        Patient:
+        <app-related-patient [id]="exam.idPatient"></app-related-patient>
+      </p>
+      <p class="card-text">
+        Pathologie: <app-pathologie [id]="exam.idPathologie"></app-pathologie>
+      </p>
+      <p class="card-text">
+        Doctor:<app-related-doctor [id]="exam.idMedecin"></app-related-doctor>
+      </p>
+      <p class="card-text">Date of Exam: {{ exam.date_Examen | date }}</p>
+    </div>
+  </div>
+</div>

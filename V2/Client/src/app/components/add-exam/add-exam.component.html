@@ -1,35 +1,43 @@
 <div class="exam-form">
   <h2>Add Exam:</h2>
-  <form formGroup="examForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="examForm">
     <div class="form-group">
       <label for="idPatient">Patient ID:</label>
       <input
         type="number"
         class="form-control"
         formControlName="idPatient"
+        [readonly]="true"
         required
       />
     </div>
     <div class="form-group">
-      <label for="idPathologie">Pathology ID:</label>
-      <input
-        type="number"
-        class="form-control"
-        formControlName="idPathologie"
-        required
-      />
+      <label for="Pathologie" class="form-label">Pathology</label>
+      <select class="form-select" formControlName="pathologie">
+        <option
+          *ngFor="let pathologie of pathologies"
+          value="{{ pathologie.nom }}"
+          required
+        >
+          {{ pathologie.nom }}
+        </option>
+      </select>
     </div>
     <div class="form-group">
-      <label for="idMedecin">Doctor ID:</label>
-      <input
-        type="number"
-        class="form-control"
-        formControlName="idMedecin"
-        required
-      />
+      <label for="medecin" class="form-label">Doctor :</label>
+      <select class="form-select" formControlName="doctor">
+        <option
+          required
+          *ngFor="let doctor of doctors"
+          value="{{ doctor.prenom }} {{ doctor.nom }}"
+          required
+        >
+          {{ doctor.prenom }} {{ doctor.nom }}
+        </option>
+      </select>
     </div>
     <div class="form-group">
-      <label for="date_Examen">Date of Exam:</label>
+      <label for="date_Examen" class="form-label">Date of Exam:</label>
       <input
         type="date"
         class="form-control"
@@ -37,8 +45,16 @@
         required
       />
     </div>
-    <button type="submit" class="btn btn-dark" [disabled]="examForm.invalid">
+    <button
+      (click)="onSubmit($event)"
+      class="btn btn-dark"
+      [disabled]="examForm.invalid"
+    >
       Create Exam
+    </button>
+    &nbsp;
+    <button type="button" class="btn btn-dark" (click)="goback()">
+      cancel
     </button>
   </form>
 </div>

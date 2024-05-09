@@ -20,6 +20,7 @@ export class ExamService {
     return data.json() ?? {};
   }
   async addData(examen: Exam) {
+    console.log(examen);
     try {
       const response = await fetch(this.url, {
         method: 'POST',

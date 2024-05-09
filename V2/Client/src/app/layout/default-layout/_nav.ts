@@ -39,6 +39,11 @@ export const navItems: INavData[] = [
     url: '/doctor',
     iconComponent: { name: 'cil-user' },
   },
+  {
+    name: 'List Exams',
+    url: '/list-exams',
+    iconComponent: { name: 'cil-pencil' },
+  },
 
   {
     name: 'Base',

@@ -19,3 +19,15 @@ h2 {
 .btn-primary:hover {
   background-color: #0056b3;
 }
+.form-label {
+  font-weight: bold;
+  color: #333; /* Adjust color as needed */
+}
+
+.form-select {
+  width: 100%; /* Adjust width as needed */
+  padding: 0.5rem; /* Adjust padding as needed */
+  margin-bottom: 1rem; /* Adjust margin as needed */
+  border: 1px solid #ccc; /* Adjust border color as needed */
+  border-radius: 5px; /* Adjust border radius as needed */
+}
