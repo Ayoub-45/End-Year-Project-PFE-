@@ -1,5 +1,24 @@
+<div class="form-group">
+  <input
+    type="text"
+    class="form-control"
+    id="searchId"
+    #filter
+    placeholder="Enter Exam ID"
+  />
+  <br />
+  <button
+    class="btn btn-dark"
+    type="button"
+    (click)="filterResults(filter.value)"
+  >
+    Search
+  </button>
+</div>
+<br />
+
 <div class="exam-list">
-  <div *ngFor="let exam of exams" class="card">
+  <div *ngFor="let exam of filteredExams" class="card">
     <div class="card-header">Exam ID: {{ exam.id }}</div>
     <div class="card-body">
       <p class="card-text">

@@ -5,7 +5,6 @@ import { ExamService } from 'src/app/services/exam/exam.service';
 import { RelatedDoctorComponent } from '../related-doctor/related-doctor.component';
 import { RelatedPatientComponent } from '../related-patient/related-patient.component';
 import { PathologieComponent } from '../pathologie/pathologie.component';
-
 @Component({
   selector: 'app-list-examens',
   standalone: true,
@@ -21,9 +20,18 @@ import { PathologieComponent } from '../pathologie/pathologie.component';
 })
 export class ListExamensComponent {
   exams!: Exam[];
+  filteredExams!: Exam[];
   constructor(private examService: ExamService) {
     this.examService.fetchData().then((response: any) => {
       this.exams = response;
+      this.filteredExams = this.exams;
     });
+  }
+  filterResults(text: string): void {
+    console.log(text);
+    if (!text) this.filteredExams = this.exams;
+    this.filteredExams = this.exams.filter((exam) =>
+      exam.id.toFixed().includes(text)
+    );
   }
 }
