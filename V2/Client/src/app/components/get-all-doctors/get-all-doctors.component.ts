@@ -5,10 +5,11 @@ import { Specialite } from '../../interfaces/specialite';
 import { SpecialiteService } from '../../services/specialite/specialite.service';
 import { DoctorService } from '../../services/doctor/doctor-service.service';
 import { SpecialiteComponent } from '../../components/specialite/specialite.component';
+import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-get-all-doctors',
   standalone: true,
-  imports: [NgFor, SpecialiteComponent],
+  imports: [NgFor, SpecialiteComponent, RouterModule],
   templateUrl: './get-all-doctors.component.html',
   styleUrl: './get-all-doctors.component.scss',
 })
