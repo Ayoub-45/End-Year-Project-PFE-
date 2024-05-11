@@ -84,7 +84,6 @@ export class PatientService {
     id: number,
     updatedPatientData: Partial<Patient>
   ): Promise<Patient | string> {
-    console.log(updatedPatientData);
     try {
       const response = await fetch(`${this.url}/${id}`, {
         method: 'PATCH',

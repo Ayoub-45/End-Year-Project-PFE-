@@ -5,6 +5,7 @@ import { Specialite } from '../../interfaces/specialite';
 import { SpecialiteService } from '../../services/specialite/specialite.service';
 import { DoctorService } from '../../services/doctor/doctor-service.service';
 import { SpecialiteComponent } from '../../components/specialite/specialite.component';
+import { UtilsComponent } from '../utils/utils.component';
 import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-get-all-doctors',
@@ -16,6 +17,7 @@ import { RouterModule } from '@angular/router';
 export class GetAllDoctorsComponent {
   doctors!: Doctor[];
   specialites!: Specialite;
+  utilsComponent = new UtilsComponent();
   constructor(
     private doctorService: DoctorService,
     private specialteService: SpecialiteService
@@ -30,5 +32,11 @@ export class GetAllDoctorsComponent {
   async getSpecialteById(id: number) {
     return await this.specialteService.fetchDataById(id);
   }
-  async deleteDoctor(id: number) {}
+  async deleteDoctor(id: number) {
+    const data = await this.doctorService.deleteDoctor(id);
+    console.log(data);
+    if (data) {
+      this.utilsComponent.refresh();
+    }
+  }
 }

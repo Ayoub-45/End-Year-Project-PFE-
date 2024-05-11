@@ -8,6 +8,7 @@ import { PatientDashboardComponent } from '../app/components/patient-dashboard/p
 import { AddExamComponent } from '../app/components/add-exam/add-exam.component';
 import { ListExamensComponent } from '../app/components/list-examens/list-examens.component';
 import { AddDoctorComponent } from '../app/components/add-doctor/add-doctor.component';
+import { EditDoctorComponent } from '../app/components/edit-doctor/edit-doctor.component';
 export const routes: Routes = [
   {
     path: '',
@@ -74,9 +75,9 @@ export const routes: Routes = [
         component: AddDoctorComponent,
       },
       {
-        path:":id/edit-doctor",
-        component:EditDoctorComponent,
-      }
+        path: ':id/edit-doctor',
+        component: EditDoctorComponent,
+      },
       {
         path: 'dashboard',
         loadChildren: () =>

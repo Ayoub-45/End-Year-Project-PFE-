@@ -44,4 +44,56 @@ export class DoctorService {
       return error instanceof Error ? error.message : 'Unknown error occurred';
     }
   }
+  async deleteDoctor(id: number): Promise<Doctor | string> {
+    try {
+      const response = await fetch(`${this.url}/${id}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (!response.ok) {
+        console.error(
+          'Network response was not ok. Status code:',
+          response.status
+        );
+        const responseBody = await response.text(); // or response.json() if the response is JSON
+        console.error(
+          'Network response was not ok. Response body:',
+          responseBody
+        );
+        throw new Error('Network response was not ok');
+      }
+
+      const responseData = await response.json();
+      return responseData;
+    } catch (error) {
+      const errorMessage =
+        error instanceof Error ? error.message : 'Unknown error occurred';
+      return errorMessage;
+    }
+  }
+  async updateDoctor(
+    id: number,
+    updatedDoctorData: Partial<Doctor>
+  ): Promise<Doctor | string> {
+    try {
+      const response = await fetch(`${this.url}/${id}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(updatedDoctorData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const responseData = await response.json();
+      return responseData as Doctor;
+    } catch (error) {
+      return error instanceof Error ? error.message : 'Unknown error occurred';
+    }
+  }
 }
