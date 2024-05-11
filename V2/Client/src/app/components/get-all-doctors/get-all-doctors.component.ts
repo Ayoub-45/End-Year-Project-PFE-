@@ -30,4 +30,5 @@ export class GetAllDoctorsComponent {
   async getSpecialteById(id: number) {
     return await this.specialteService.fetchDataById(id);
   }
+  async deleteDoctor(id: number) {}
 }

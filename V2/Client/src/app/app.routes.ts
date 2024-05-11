@@ -74,6 +74,10 @@ export const routes: Routes = [
         component: AddDoctorComponent,
       },
       {
+        path:":id/edit-doctor",
+        component:EditDoctorComponent,
+      }
+      {
         path: 'dashboard',
         loadChildren: () =>
           import('./views/dashboard/routes').then((m) => m.routes),
