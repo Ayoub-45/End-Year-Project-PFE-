@@ -35,11 +35,9 @@ export class AddExamComponent implements OnInit {
   ) {
     this.pathologieService.fetchData().then((response) => {
       this.pathologies = response;
-      console.log(this.pathologies);
     });
     this.doctorService.fetchData().then((response) => {
       this.doctors = response;
-      console.log(this.doctors);
     });
   }
   ngOnInit(): void {
