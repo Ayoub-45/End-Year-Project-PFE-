@@ -21,14 +21,18 @@ import { PathologieComponent } from '../pathologie/pathologie.component';
 export class ListExamensComponent {
   exams!: Exam[];
   filteredExams!: Exam[];
+  ids!: number[];
   constructor(private examService: ExamService) {
-    this.examService.fetchData().then((response: any) => {
+    this.getExams().then((response: any) => {
       this.exams = response;
       this.filteredExams = this.exams;
     });
   }
+  async getExams() {
+    const exams = await this.examService.fetchData();
+    return exams;
+  }
   filterResults(text: string): void {
-    console.log(text);
     if (!text) this.filteredExams = this.exams;
     this.filteredExams = this.exams.filter((exam) =>
       exam.id.toFixed().includes(text)

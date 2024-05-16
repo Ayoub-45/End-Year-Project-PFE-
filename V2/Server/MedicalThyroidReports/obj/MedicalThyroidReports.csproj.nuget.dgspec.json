@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Dell\\Desktop\\Projects\\End Year project(PFE)\\V2\\Server\\MedicalThyroidReports\\MedicalThyroidReports.csproj": {}
+    "C:\\Users\\Dell\\Desktop\\Projects\\End Year project(PFE)\\V2\\server\\MedicalThyroidReports\\MedicalThyroidReports.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Dell\\Desktop\\Projects\\End Year project(PFE)\\V2\\Server\\MedicalThyroidReports\\MedicalThyroidReports.csproj": {
+    "C:\\Users\\Dell\\Desktop\\Projects\\End Year project(PFE)\\V2\\server\\MedicalThyroidReports\\MedicalThyroidReports.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Dell\\Desktop\\Projects\\End Year project(PFE)\\V2\\Server\\MedicalThyroidReports\\MedicalThyroidReports.csproj",
+        "projectUniqueName": "C:\\Users\\Dell\\Desktop\\Projects\\End Year project(PFE)\\V2\\server\\MedicalThyroidReports\\MedicalThyroidReports.csproj",
         "projectName": "MedicalThyroidReports",
-        "projectPath": "C:\\Users\\Dell\\Desktop\\Projects\\End Year project(PFE)\\V2\\Server\\MedicalThyroidReports\\MedicalThyroidReports.csproj",
+        "projectPath": "C:\\Users\\Dell\\Desktop\\Projects\\End Year project(PFE)\\V2\\server\\MedicalThyroidReports\\MedicalThyroidReports.csproj",
         "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Dell\\Desktop\\Projects\\End Year project(PFE)\\V2\\Server\\MedicalThyroidReports\\obj\\",
+        "outputPath": "C:\\Users\\Dell\\Desktop\\Projects\\End Year project(PFE)\\V2\\server\\MedicalThyroidReports\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
             "MySql.Data": {
               "target": "Package",
               "version": "[8.0.33, )"

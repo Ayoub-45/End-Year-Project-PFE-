@@ -122,3 +122,11 @@ C:\Users\Dell\Desktop\Projects\End Year project(PFE)\V2\Server\MedicalThyroidRep
 C:\Users\Dell\Desktop\Projects\End Year project(PFE)\V2\Server\MedicalThyroidReports\obj\Debug\net6.0\MedicalThyroidReports.pdb
 C:\Users\Dell\Desktop\Projects\End Year project(PFE)\V2\Server\MedicalThyroidReports\obj\Debug\net6.0\MedicalThyroidReports.genruntimeconfig.cache
 C:\Users\Dell\Desktop\Projects\End Year project(PFE)\V2\Server\MedicalThyroidReports\obj\Debug\net6.0\ref\MedicalThyroidReports.dll
+C:\Users\Dell\Desktop\Projects\End Year project(PFE)\V2\server\MedicalThyroidReports\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Dell\Desktop\Projects\End Year project(PFE)\V2\server\MedicalThyroidReports\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Dell\Desktop\Projects\End Year project(PFE)\V2\server\MedicalThyroidReports\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Dell\Desktop\Projects\End Year project(PFE)\V2\server\MedicalThyroidReports\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Dell\Desktop\Projects\End Year project(PFE)\V2\server\MedicalThyroidReports\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Dell\Desktop\Projects\End Year project(PFE)\V2\server\MedicalThyroidReports\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Dell\Desktop\Projects\End Year project(PFE)\V2\server\MedicalThyroidReports\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Dell\Desktop\Projects\End Year project(PFE)\V2\server\MedicalThyroidReports\bin\Debug\net6.0\BCrypt.Net-Next.dll

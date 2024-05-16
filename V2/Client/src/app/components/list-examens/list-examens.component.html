@@ -1,37 +1,44 @@
-<div class="form-group">
-  <input
-    type="text"
-    class="form-control"
-    id="searchId"
-    #filter
-    placeholder="Enter Exam ID"
-  />
-  <br />
-  <button
-    class="btn btn-dark"
-    type="button"
-    (click)="filterResults(filter.value)"
-  >
-    Search
-  </button>
-</div>
-<br />
-
+<!-- exam-list.component.html -->
 <div class="exam-list">
-  <div *ngFor="let exam of filteredExams" class="card">
-    <div class="card-header">Exam ID: {{ exam.id }}</div>
-    <div class="card-body">
-      <p class="card-text">
-        Patient:
-        <app-related-patient [id]="exam.idPatient"></app-related-patient>
-      </p>
-      <p class="card-text">
-        Pathologie: <app-pathologie [id]="exam.idPathologie"></app-pathologie>
-      </p>
-      <p class="card-text">
-        Doctor:<app-related-doctor [id]="exam.idMedecin"></app-related-doctor>
-      </p>
-      <p class="card-text">Date of Exam: {{ exam.date_Examen | date }}</p>
-    </div>
+  <div class="form-group">
+    <input
+      type="text"
+      class="form-control"
+      formControlName="searchId"
+      placeholder="Enter Exam ID"
+      #text
+    />
+    <br />
+    <button
+      class="btn btn-dark"
+      type="submit"
+      (click)="filterResults(text.value)"
+    >
+      Search
+    </button>
+    <br />
   </div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Exam ID</th>
+        <th>Patient</th>
+        <th>Pathologie</th>
+        <th>Doctor</th>
+        <th>Date of Exam</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let exam of filteredExams">
+        <td>{{ exam.id }}</td>
+        <td>
+          <app-related-patient [id]="exam.idPatient"></app-related-patient>
+        </td>
+        <td><app-pathologie [id]="exam.idPathologie"></app-pathologie></td>
+        <td><app-related-doctor [id]="exam.idMedecin"></app-related-doctor></td>
+        <td>{{ exam.date_Examen | date }}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
